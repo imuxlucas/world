@@ -24,4 +24,4 @@ The three pinned tad-universal npm distributions are in `vendor/` because the up
 
 The AI SEE and tad-universal documentation destinations may require corporate network access; the site cannot grant access to those external systems. Embedded local component demos and local screenshots are deployed with this website.
 
-The adapted carousel retains the original Carousel Lamp license in `public/assets/carousel/LICENSE.txt` and visible attribution linking to its author. Third-party components and media retain their own rights; publication does not grant additional reuse rights.
+The adapted carousel retains the original Carousel Lamp license in `public/assets/carousel/LICENSE.txt` and its source/authorization record in `docs/CAROUSEL_AUTHORIZATION.md`. The homepage attribution was removed at the project owner's request; the original license requires visible webpage attribution, so an applicable author permission is needed to waive that requirement. Third-party components and media retain their own rights; publication does not grant additional reuse rights.

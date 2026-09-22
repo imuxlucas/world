@@ -37,5 +37,3 @@
   .park-header { padding-top: 15px; }
   .park-motto { font-size: 15px; }
 }
-.park-attribution { position: absolute; bottom: 12px; left: 20px; z-index: 5; max-width: calc(100% - 40px); color: #777; font-size: 10px; line-height: 16px; text-decoration: none; }
-.park-attribution:hover { color: #333; text-decoration: underline; }

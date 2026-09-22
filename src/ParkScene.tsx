@@ -216,6 +216,5 @@ export default function ParkScene(){
       {error&&<div className="park-loading" role="alert"><p>{error}</p><button onClick={()=>setRetry(n=>n+1)}>重新加载</button></div>}
     </section>
     <OkrDetails objective={objective??lastObjective} kr={objective?route.kr:0} open={!!objective}/>
-    {!objective && <a className="park-attribution" href="https://github.com/Daria1216/carousel-lamp" target="_blank" rel="noopener noreferrer">旋转木马基于 Carousel Lamp · 咕噜蛋Daria，已修改</a>}
   </main>;
 }
