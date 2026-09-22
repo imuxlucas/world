@@ -90,7 +90,7 @@ export default function OkrDetails({ objective, kr, open }: { objective: Objecti
           <figure className="okr-case" aria-label="案例展示区">
             <div className="okr-case-stage"><CaseStage result={result} objective={objective} index={kr} /></div>
           </figure>
-          <div className="okr-statement"><h2>{copy.title.replace(/[。.]$/, '')}{kr === 0 && <sup className="okr-greeting">Hi December～</sup>}</h2></div>
+          <div className="okr-statement"><h2>{copy.title.replace(/[。.]$/, '')}<sup className="okr-greeting">Hi December～</sup></h2></div>
           <div className="okr-evidence"><p>{copy.action}</p><p>{copy.acceptance}</p></div>
         </article>
       </div>

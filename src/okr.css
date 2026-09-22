@@ -116,7 +116,6 @@
 .okr-index-thumb { opacity: 1; box-shadow: none; }
 .okr-statement { margin: 27px 0 25px; }
 .okr-statement h2 { margin: 0; }
-.okr-greeting { margin: 0 0 10px; font-family: Georgia, 'Times New Roman', serif; font-size: 13px; font-weight: 400; line-height: 1.5; color: #92969d; letter-spacing: .35px; }
 .okr-evidence { display: flex; flex-direction: column; gap: 18px; }
 .okr-evidence p { margin: 0; }
 
@@ -145,25 +144,16 @@
   letter-spacing: -.16px;
   font-weight: 400;
 }
-.okr-panel .okr-greeting {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 20px;
-  letter-spacing: normal;
-}
-.okr-greeting sup { font-size: inherit; line-height: 0; vertical-align: super; }
-
 .okr-panel .okr-statement h2 > .okr-greeting {
   display: inline;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 6px;
   font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: -.2px;
-  font-weight: 500;
+  font-size: 10px;
+  line-height: 0;
+  letter-spacing: normal;
+  font-weight: 400;
+  color: #92969d;
   vertical-align: super;
   white-space: nowrap;
 }
