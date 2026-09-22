@@ -1,0 +1,52 @@
+{
+  "id": "dog",
+  "name": "小狗 · 散步伙伴",
+  "subtitle": "柔和毛发与湿润眼眸 · v002",
+  "category": "角色资产",
+  "status": "review",
+  "description": "7 万面写实小狗，保留毛发纹理与湿润角膜高光。8 秒循环慢步，头部缓慢转向，卷尾间歇轻摇。",
+  "source": {
+    "label": "Blender 绑定动画源文件 · v002",
+    "path": "asset-sources/dog/v002/source.blend",
+    "license": "用户提供模型，本地优化与绑定"
+  },
+  "modelUrl": "/assets/dog/v002/model.glb",
+  "thumbnail": "/assets/dog/v002/thumbnail.png",
+  "animation": {
+    "defaultClip": "Walk_InPlace",
+    "duration": 8
+  },
+  "parts": [
+    {
+      "id": "dog_body",
+      "name": "毛发与身体",
+      "nodeNames": [
+        "dog_body"
+      ],
+      "description": "保留原有轮廓的 7 万面蒙皮网格，柔和非金属毛发材质。",
+      "explodeOffset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "dog_eyes",
+      "name": "反光眼部",
+      "nodeNames": [
+        "dog_eyes"
+      ],
+      "description": "保留虹膜纹理，独立低粗糙度角膜高光，跟随头部骨骼。",
+      "explodeOffset": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "notes": [
+    "Walk_InPlace 为原地无缝散步；Walk_Forward 带前进位移，保留在下载文件中。",
+    "与上一版使用相同的骨骼、权重和步态；只分离眼部材质网格，不改变几何。",
+    "4K 毛色保留，法线降至 1K，移除不适合毛发的金属度贴图。"
+  ]
+}

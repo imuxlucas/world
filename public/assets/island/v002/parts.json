@@ -1,0 +1,67 @@
+{
+  "id": "island",
+  "name": "Island · 梦核圆盘",
+  "subtitle": "粉蓝穆夏陶瓷 · 弧形衬线铭牌 v002",
+  "category": "场景底盘",
+  "status": "review",
+  "description": "加厚圆形陶瓷底座、凸起异形弧面铭牌、粉蓝穆夏釉面铺装与独立心形函数图。",
+  "notes": [
+    "本轮已使用参考图生成的实际陶瓷底色贴图，嵌入 GLB。",
+    "铭牌和全部衬线字沿半径弯曲；粉色浮雕花边与底座紧密贴合。",
+    "保留 v001；当前 v002 供造型与材质确认。"
+  ],
+  "modelUrl": "/assets/island/v002/model.glb",
+  "thumbnail": "/assets/island/v002/thumbnail.png",
+  "source": {
+    "label": "原创 Blender 陶瓷精修 · v002",
+    "path": "asset-sources/island/v002/source.blend"
+  },
+  "parts": [
+    {
+      "id": "island_base",
+      "name": "圆形岛屿底盘",
+      "nodeNames": [
+        "island_base"
+      ],
+      "description": "加厚至 0.56m 的圆形瓷座，圆润倒角；前缘承托异形铭牌。"
+    },
+    {
+      "id": "island_border",
+      "name": "陶瓷包边",
+      "nodeNames": [
+        "island_border"
+      ],
+      "description": "细腻粉色嵌线与上下双层陶瓷圆边。"
+    },
+    {
+      "id": "island_paving",
+      "name": "穆夏陶瓷铺装",
+      "nodeNames": [
+        "island_paving"
+      ],
+      "description": "根据选定参考图生成的粉蓝穆夏贴图；平面 UV、清漆陶瓷材质。"
+    },
+    {
+      "id": "island_math",
+      "name": "心形函数图",
+      "nodeNames": [
+        "island_math"
+      ],
+      "description": "独立的蓝色心形曲线、极坐标虚线与坐标轴。"
+    },
+    {
+      "id": "island_plaque",
+      "name": "弧形公式铭牌",
+      "nodeNames": [
+        "island_plaque"
+      ],
+      "description": "沿圆周贴合的异形陶瓷浮雕，弯曲的 Georgia 衬线字及粉色新艺术花边。"
+    }
+  ],
+  "stats": {
+    "meshes": 9,
+    "triangles": 176124,
+    "materials": 5,
+    "bytes": 7535868
+  }
+}

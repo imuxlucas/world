@@ -1,0 +1,59 @@
+{
+  "id": "island",
+  "name": "Island · 梦核圆盘",
+  "subtitle": "一体抬升前缘 · 公式印花 v003",
+  "category": "场景底盘",
+  "status": "review",
+  "description": "圆盘本体前缘捏起形成梯形块面；公式和粉蓝花纹直接印在底盘表面，保留穆夏铺装与标准尖底爱心。",
+  "notes": [
+    "已移除独立实体铭牌与立体公式字。",
+    "公式为可编辑 SVG 排版生成的 4096 × 768 贴图，直接映射底盘侧面。",
+    "前缘最高 0.88，普通盘面 0.56；梯形肩部连续过渡到盘面。"
+  ],
+  "modelUrl": "/assets/island/v003/model.glb",
+  "thumbnail": "/assets/island/v003/thumbnail.png",
+  "source": {
+    "label": "原创 Blender 一体底盘 · v003",
+    "path": "asset-sources/island/v003/source.blend"
+  },
+  "parts": [
+    {
+      "id": "island_base",
+      "name": "一体抬升圆盘",
+      "nodeNames": [
+        "island_base"
+      ],
+      "description": "单一闭合底盘网格；正前缘抬升为梯形块面，与盘面连成一体。公式与花纹直接使用该表面的 UV 贴图。"
+    },
+    {
+      "id": "island_border",
+      "name": "随形陶瓷包边",
+      "nodeNames": [
+        "island_border"
+      ],
+      "description": "圆边随前缘抬升，连续经过梯形肩部，无额外铭牌边框。"
+    },
+    {
+      "id": "island_paving",
+      "name": "穆夏陶瓷铺装",
+      "nodeNames": [
+        "island_paving"
+      ],
+      "description": "根据选定参考图生成的粉蓝穆夏贴图；平面 UV、清漆陶瓷材质。"
+    },
+    {
+      "id": "island_math",
+      "name": "心形函数图",
+      "nodeNames": [
+        "island_math"
+      ],
+      "description": "标准尖底爱心：x=16sin³(t)，y=13cos(t)−5cos(2t)−2cos(3t)−cos(4t)，保留独立坐标轴。"
+    }
+  ],
+  "stats": {
+    "meshes": 5,
+    "triangles": 45770,
+    "materials": 5,
+    "bytes": 3034096
+  }
+}

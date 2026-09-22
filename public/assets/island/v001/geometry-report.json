@@ -1,0 +1,89 @@
+{
+  "asset": "island",
+  "checks": "Object meshes after modifier application; outward normals recalculated; finite coordinates, face area and edge manifold checks. Separate intersecting solids are deliberate assembly pieces, not boolean-unioned.",
+  "objects": [
+    {
+      "mesh": "island_base__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_border__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_border__Milk_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_paving__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 96,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_paving__Milk_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 96,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_paving__Dream_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_paving__Dream_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_math__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_math__Periwinkle_ink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_plaque__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_plaque__Periwinkle_ink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    }
+  ],
+  "limitations": [
+    "No global self-intersection solver or full animation collision sweep was performed.",
+    "Zero boundary edges does not prove an assembled part has no collision.",
+    "Island decals are intentionally single sided; font caps may have open triangulated boundaries depending on font conversion.",
+    "Lighting, metal reflection and transparent glass must also be checked in the Three.js viewer."
+  ]
+}

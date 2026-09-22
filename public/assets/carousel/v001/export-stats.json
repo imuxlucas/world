@@ -1,0 +1,42 @@
+{
+  "meshes": 238,
+  "triangles": 155836,
+  "materials": 130,
+  "dimensions": [
+    4.369999885559082,
+    6.47739999294281,
+    4.3900000035762785
+  ],
+  "parts": [
+    {
+      "name": "base",
+      "meshes": 10
+    },
+    {
+      "name": "column",
+      "meshes": 16
+    },
+    {
+      "name": "canopy",
+      "meshes": 41
+    },
+    {
+      "name": "horses",
+      "meshes": 24
+    },
+    {
+      "name": "rods",
+      "meshes": 14
+    },
+    {
+      "name": "frames",
+      "meshes": 132
+    },
+    {
+      "name": "lights",
+      "meshes": 1
+    }
+  ],
+  "bytes": 15628632,
+  "errors": []
+}

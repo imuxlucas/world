@@ -1,0 +1,68 @@
+const { chromium } = require('/Users/lucas/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const assert = require('node:assert/strict');
+const root = path.resolve(__dirname, '..');
+(async () => {
+  const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+  const context = await browser.newContext({ viewport: { width: 1600, height: 1050 }, deviceScaleFactor: 1, acceptDownloads: true });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  const manifest = JSON.parse(await fs.readFile(path.join(root, 'public/assets/manifest.json'), 'utf8'));
+  const results = [];
+  await fs.mkdir(path.join(root, 'artifacts'), { recursive: true });
+  try {
+    for (const asset of manifest.assets) {
+      await page.goto(`http://127.0.0.1:5178/#${asset.id}`);
+      const canvas = page.locator(`canvas[data-asset="${asset.id}"][data-loaded="true"]`);
+      await canvas.waitFor({ state: 'visible', timeout: 90000 });
+      await page.waitForFunction(() => document.querySelector('.viewer-status')?.textContent === '模型已加载');
+      const loadedParts = Number(await canvas.getAttribute('data-parts'));
+      assert.equal(loadedParts, asset.parts.reduce((n, part) => n + part.nodeNames.length, 0), `${asset.id} parts`);
+      await page.screenshot({ path: path.join(root, `artifacts/studio-${asset.id}.png`) });
+      await page.locator('.viewer-stage').screenshot({ path: path.join(root, `public/assets/${asset.id}/thumbnail.png`) });
+      const baseline = await canvas.screenshot();
+      const part = asset.parts[0];
+      await page.getByRole('button', { name: `独显${part.name}`, exact: true }).click();
+      await page.locator('.isolation-banner').waitFor();
+      const isolated = await canvas.screenshot();
+      assert.notEqual(Buffer.compare(baseline, isolated), 0, `${asset.id} isolation changes rendered pixels`);
+      await page.keyboard.press('Escape');
+      await page.getByRole('button', { name: `隐藏${part.name}`, exact: true }).click();
+      assert.equal(await page.getByRole('button', { name: `显示${part.name}`, exact: true }).count(), 1);
+      await page.getByRole('button', { name: '重置视角及部件显示', exact: true }).click();
+      await page.locator('#explode').fill('0.65');
+      const exploded = await canvas.screenshot();
+      assert.notEqual(Buffer.compare(baseline, exploded), 0, `${asset.id} explosion changes rendered pixels`);
+      if (asset.id === 'carousel') await page.screenshot({ path: path.join(root, 'artifacts/studio-carousel-exploded.png') });
+      await page.getByRole('button', { name: '重置视角及部件显示', exact: true }).click();
+      await page.getByRole('button', { name: '线框', exact: true }).click();
+      assert.equal(await page.getByRole('button', { name: '线框', exact: true }).getAttribute('aria-pressed'), 'true');
+      await page.getByRole('button', { name: '线框', exact: true }).click();
+      await page.getByRole('button', { name: '梦核', exact: true }).click();
+      assert.equal(await page.getByRole('button', { name: '梦核', exact: true }).getAttribute('aria-pressed'), 'true');
+      results.push({ id: asset.id, loadedParts, loading: true, isolation: true, visibility: true, explosion: true, wireframe: true, lighting: true });
+    }
+    await page.getByRole('tab', { name: '审阅', exact: true }).click();
+    await page.locator('#review-note').fill('QA 临时记录：仅在隔离测试浏览器中保存。');
+    await page.getByRole('button', { name: '需改进', exact: true }).click();
+    const lastAsset = manifest.assets.at(-1).id;
+    await page.reload();
+    await page.getByRole('tab', { name: '审阅', exact: true }).click();
+    assert.match(await page.locator('#review-note').inputValue(), /QA 临时记录/);
+    const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('lucas-asset-studio-reviews-v1')));
+    assert.equal(stored[lastAsset].status, 'changes');
+    await page.getByRole('textbox', { name: '搜索模型资产' }).fill('Craft');
+    assert.equal(await page.locator('.asset-card').count(), 1);
+    await page.getByRole('button', { name: '清空搜索' }).click();
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.screenshot({ path: path.join(root, 'artifacts/studio-mobile.png'), fullPage: true });
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
+    assert.equal(overflow, false, 'mobile horizontal overflow');
+    assert.deepEqual(errors, [], 'runtime errors');
+    const report = { results, localReviewPersistence: true, search: true, mobileOverflow: false, errors, browser: 'headless Google Chrome, SwiftShader WebGL' };
+    await fs.writeFile(path.join(root, 'artifacts/studio-browser-check.json'), JSON.stringify(report, null, 2));
+    console.log(JSON.stringify(report, null, 2));
+  } finally { await browser.close(); }
+})().catch(error => { console.error(error); process.exitCode = 1; });

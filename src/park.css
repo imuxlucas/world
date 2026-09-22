@@ -1,0 +1,41 @@
+.park-page {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 320px;
+  overflow: hidden;
+  background: #fff;
+  color: #625c73;
+}
+.park-header {
+  position: absolute;
+  z-index: 2;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 29px 42px 0 33px;
+  pointer-events: none;
+}
+.park-identity { flex: none; }
+.park-brand { display: block; width: 280px; pointer-events: auto; }
+.park-brand img { display: block; width: 100%; height: auto; user-select: none; }
+.park-motto { margin: 6px 0 0 12px; font: italic 18px/1.4 Georgia, serif; letter-spacing: .2px; color: #8a809b; }
+.park-stage, .park-canvas { position: absolute; inset: 0; }
+.park-canvas canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.park-canvas canvas:focus-visible { outline: 1px solid #cbbad8; outline-offset: -5px; }
+.park-loading { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); max-width: calc(100% - 40px); background: #ffffffed; padding: 18px 26px; border: 1px solid #f0edf3; border-radius: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; font-size: 12px; color: #8a809b; }
+.park-loading button { border: 1px solid #e5e5ef; background: #fff; padding: 9px 15px; border-radius: 22px; font-size: 11px; color: #727b92; }
+.park-loading > span { height: 7px; width: 7px; border-radius: 50%; background: #d4c1dd; animation: park-pulse 1.4s infinite alternate; }
+@keyframes park-pulse { to { opacity: .2; } }
+@media (max-width: 760px) {
+  .park-header { padding: 22px 21px 0 14px; gap: 12px; }
+  .park-motto { margin: 6px 0 0 9px; font-size: 15px; }
+}
+@media (max-height: 500px) and (min-width: 761px) {
+  .park-header { padding-top: 15px; }
+  .park-motto { font-size: 15px; }
+}
+.park-attribution { position: absolute; bottom: 12px; left: 20px; z-index: 5; max-width: calc(100% - 40px); color: #777; font-size: 10px; line-height: 16px; text-decoration: none; }
+.park-attribution:hover { color: #333; text-decoration: underline; }

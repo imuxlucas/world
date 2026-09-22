@@ -1,0 +1,55 @@
+{
+  "asset": "island",
+  "checks": "Object meshes after modifier application; outward normals recalculated; finite coordinates, face area and edge manifold checks. Separate intersecting solids are deliberate assembly pieces, not boolean-unioned.",
+  "objects": [
+    {
+      "mesh": "island_math__Cobalt_serif_enamel",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_base__Pearl_porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_paving__Mucha_glazed_ceramic",
+      "degenerateFaces": 0,
+      "boundaryEdges": 384,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_border__Pearl_porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_border__Blush_porcelain_seam",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    }
+  ],
+  "limitations": [
+    "No global self-intersection solver or full animation collision sweep was performed.",
+    "Zero boundary edges does not prove an assembled part has no collision.",
+    "Island decals are intentionally single sided; font caps may have open triangulated boundaries depending on font conversion.",
+    "Lighting, metal reflection and transparent glass must also be checked in the Three.js viewer."
+  ],
+  "construction": {
+    "singleConnectedBody": true,
+    "separatePlaque": false,
+    "formula": "base material UV texture",
+    "bodyHeight": 0.56,
+    "raisedFrontHeight": 0.88,
+    "heartCurve": "classic trigonometric pointed heart"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "craft": {
+    "glbHeader": "valid",
+    "allPartNodesPresent": true,
+    "previewExcluded": true,
+    "partGroups": 7,
+    "stats": {
+      "meshes": 17,
+      "triangles": 106440,
+      "materials": 9,
+      "bytes": 3032968
+    }
+  },
+  "link": {
+    "glbHeader": "valid",
+    "allPartNodesPresent": true,
+    "previewExcluded": true,
+    "partGroups": 8,
+    "stats": {
+      "meshes": 49,
+      "triangles": 185868,
+      "materials": 11,
+      "bytes": 4505872
+    },
+    "independentGondolas": 8,
+    "gondolaPivots": true
+  },
+  "island": {
+    "glbHeader": "valid",
+    "allPartNodesPresent": true,
+    "previewExcluded": true,
+    "partGroups": 5,
+    "stats": {
+      "meshes": 11,
+      "triangles": 50228,
+      "materials": 6,
+      "bytes": 1234540
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "source": "aespa 에스파 'Whiplash' ae-WINTER _ Whiplash Universe.mp4",
+  "sourceDuration": 23.067528,
+  "duration": 20.0,
+  "frames": 600,
+  "fps": 30.0,
+  "crop": [
+    68,
+    86,
+    224,
+    492
+  ],
+  "foregroundBounds": [
+    19,
+    6,
+    204,
+    491
+  ],
+  "packedSize": [
+    448,
+    492
+  ],
+  "packing": "RGB left / alpha right, same frame",
+  "audio": false,
+  "floorReflectionRemoved": true,
+  "blackEndCardRemoved": true,
+  "bytes": 3655308
+}

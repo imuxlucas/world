@@ -1,0 +1,83 @@
+{
+  "name": "Code × Craft",
+  "subtitle": "冷银代码工坊 · 原创结构拆件 v001",
+  "category": "主体建筑",
+  "description": "围绕同心环梁、精确立柱与可替换代码屏幕制作的真实几何样品。",
+  "notes": [
+    "本轮是原创结构与拆件样品，不是选定效果图的最终美术还原。",
+    "分片玻璃为有厚度实体；浏览器环境反射及透明排序仍需视觉验收。",
+    "字形为可拆的实体几何，后续可换成屏幕贴图降低面数。"
+  ],
+  "id": "craft",
+  "status": "review",
+  "modelUrl": "/assets/craft/v001/model.glb",
+  "source": {
+    "label": "原创 Blender 程序建模 · v001",
+    "path": "asset-sources/craft/v001/source.blend"
+  },
+  "parts": [
+    {
+      "id": "craft_base",
+      "name": "圆形基座",
+      "nodeNames": [
+        "craft_base"
+      ],
+      "description": "独立圆底座、入口踏步、环形灯槽。"
+    },
+    {
+      "id": "craft_structure",
+      "name": "环梁与立柱",
+      "nodeNames": [
+        "craft_structure"
+      ],
+      "description": "双层环梁、8 根外柱及后侧斜撑；精确同心对齐。"
+    },
+    {
+      "id": "craft_glass",
+      "name": "分片玻璃",
+      "nodeNames": [
+        "craft_glass"
+      ],
+      "description": "有厚度的弧形玻璃，正面入口和屏幕位置留空。"
+    },
+    {
+      "id": "craft_neon",
+      "name": "霓虹灯带",
+      "nodeNames": [
+        "craft_neon"
+      ],
+      "description": "独立粉蓝发光材质，光源槽与金属分离。"
+    },
+    {
+      "id": "craft_core",
+      "name": "中央 AI 光柱",
+      "nodeNames": [
+        "craft_core"
+      ],
+      "description": "上下贯通的透明光芯、环形机电细节和上层屋顶。"
+    },
+    {
+      "id": "craft_screens",
+      "name": "代码屏幕",
+      "nodeNames": [
+        "craft_screens"
+      ],
+      "description": "可独立替换的深色屏板及代码字形。"
+    },
+    {
+      "id": "craft_hardware",
+      "name": "工艺细节",
+      "nodeNames": [
+        "craft_hardware"
+      ],
+      "description": "外环拼接、检修盒、紧固件和顶部散热片。"
+    }
+  ],
+  "stats": {
+    "meshes": 17,
+    "triangles": 106440,
+    "materials": 9,
+    "bytes": 3032968
+  },
+  "thumbnailUrl": "/assets/craft/v001/thumbnail.png"
+}

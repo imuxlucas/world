@@ -1,0 +1,121 @@
+{
+  "id": "carousel",
+  "name": "旋转木马 · Workflow",
+  "subtitle": "浮雕花檐、珍珠彩灯与精修木马 v003",
+  "category": "核心主体",
+  "status": "review",
+  "description": "加高波浪花檐、独立蓝粉浮雕花饰、玫瑰金双轨、小珍珠和彩灯；木马重塑长鼻梁、额前鬃毛、大眼睛与成对抬腿姿态。",
+  "source": {
+    "label": "Carousel Lamp · 咕噜蛋Daria",
+    "url": "https://github.com/Daria1216/carousel-lamp",
+    "license": "作者授权本项目使用；保留原许可和署名",
+    "path": "asset-sources/carousel/v003/source.blend"
+  },
+  "parts": [
+    {
+      "id": "base",
+      "name": "圆形底座",
+      "nodeNames": [
+        "base"
+      ],
+      "description": "实心平底双层台阶、粉色花瓣彩绘与瓷白台面。",
+      "explodeOffset": [
+        0,
+        -0.1,
+        0
+      ]
+    },
+    {
+      "id": "column",
+      "name": "彩绘中心柱",
+      "nodeNames": [
+        "column"
+      ],
+      "description": "蓝粉郁金香中心柱，细香槟金分段收边。",
+      "explodeOffset": [
+        0,
+        0.04,
+        -0.24
+      ]
+    },
+    {
+      "id": "canopy",
+      "name": "伞顶与花檐",
+      "nodeNames": [
+        "canopy"
+      ],
+      "description": "加高波浪花檐、蓝粉浮雕花饰、玫瑰金双轨、珍珠节点和粉色旗帜。",
+      "explodeOffset": [
+        0,
+        0.33,
+        0
+      ]
+    },
+    {
+      "id": "horses",
+      "name": "三匹雕刻木马",
+      "nodeNames": [
+        "horses"
+      ],
+      "description": "三匹白瓷木马：渐细鼻梁、大眼睛、额前鬃毛、嘴线和分侧错位抬腿。",
+      "explodeOffset": [
+        0.27,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rods",
+      "name": "连接吊杆",
+      "nodeNames": [
+        "rods"
+      ],
+      "description": "连接底台与伞顶的三组吊杆，含螺旋装饰与端部连接座。",
+      "explodeOffset": [
+        -0.26,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "frames",
+      "name": "拍立得与吊饰",
+      "nodeNames": [
+        "frames"
+      ],
+      "description": "原有拍立得与吊饰造型，更新为蓝粉纸面与珐琅配色。",
+      "explodeOffset": [
+        0,
+        0.05,
+        0.27
+      ]
+    },
+    {
+      "id": "lights",
+      "name": "隐藏式灯环",
+      "nodeNames": [
+        "lights"
+      ],
+      "description": "上下花檐共 128 颗粉蓝发光灯珠，另保留内部灯环。",
+      "explodeOffset": [
+        0,
+        0.2,
+        -0.14
+      ]
+    }
+  ],
+  "notes": [
+    "保留已确认圆盘和旋转木马底座、中心柱、拍立得等已有设计。",
+    "花檐花饰改为独立几何，避免环形贴图拉宽；上下金属轨道加深波浪并增加珍珠和彩灯。",
+    "木马头脸改为连续渐细鼻梁，补额前鬃毛、眼神高光和嘴线；前后腿分侧错位。",
+    "v002 模型和原贴图保留，v003 复用蓝粉贴图并更新几何。",
+    "照片窗口仍为蓝粉占位纸面。"
+  ],
+  "modelUrl": "/assets/carousel/v003/model.glb",
+  "stats": {
+    "meshes": 605,
+    "triangles": 465240,
+    "materials": 210,
+    "bytes": 18974056
+  }
+}

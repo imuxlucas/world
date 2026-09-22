@@ -1,0 +1,59 @@
+{
+  "id": "island",
+  "name": "Island · 梦核圆盘",
+  "subtitle": "圆角凹面 · 闪粉铭文 v008",
+  "category": "场景底盘",
+  "status": "review",
+  "description": "保留梯形上沿，凹面四角改为连续圆角；铭文去描边，蓝粉花纹与文字增加细碎闪粉质感。",
+  "notes": [
+    "凸起进深 0.24m，铺装与凸起后缘相隔 3cm。",
+    "凹面四角采用 0.16m 圆角，保留四边统一收边。",
+    "imagegen 编辑无描边闪粉贴图，搭配低粗糙度清漆材质。"
+  ],
+  "modelUrl": "/assets/island/v008/model.glb",
+  "thumbnail": "/assets/island/v008/thumbnail.png",
+  "source": {
+    "label": "原创 Blender 圆角闪粉底盘 · v008",
+    "path": "asset-sources/island/v008/source.blend"
+  },
+  "parts": [
+    {
+      "id": "island_base",
+      "name": "紧凑直背凸起底盘",
+      "nodeNames": [
+        "island_base"
+      ],
+      "description": "凸起进深 0.24m；平面铺装与后缘间隔 0.03m，背面直落并保留小倒角。"
+    },
+    {
+      "id": "island_border",
+      "name": "四边清晰浅凹陶瓷边缘",
+      "nodeNames": [
+        "island_border"
+      ],
+      "description": "凹面四角 0.16m 连续圆角，去描边闪粉铭文，保留瓷白留边。"
+    },
+    {
+      "id": "island_paving",
+      "name": "穆夏陶瓷铺装",
+      "nodeNames": [
+        "island_paving"
+      ],
+      "description": "根据选定参考图生成的粉蓝穆夏贴图；平面 UV、清漆陶瓷材质。"
+    },
+    {
+      "id": "island_math",
+      "name": "心形函数图",
+      "nodeNames": [
+        "island_math"
+      ],
+      "description": "独立的蓝色心形曲线、极坐标虚线与坐标轴。"
+    }
+  ],
+  "stats": {
+    "meshes": 4,
+    "triangles": 228014,
+    "materials": 4,
+    "bytes": 8022492
+  }
+}

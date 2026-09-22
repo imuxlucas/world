@@ -1,0 +1,438 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "carousel",
+      "name": "旋转木马 · Workflow",
+      "subtitle": "鲜明蓝粉珐琅与棚顶彩绘 · v006",
+      "category": "核心主体",
+      "status": "review",
+      "description": "加高波浪花檐、独立蓝粉浮雕花饰、玫瑰金双轨、小珍珠和彩灯；木马重塑长鼻梁、额前鬃毛、大眼睛与成对抬腿姿态。",
+      "source": {
+        "label": "Blender 可编辑源文件 · v006",
+        "url": "https://github.com/Daria1216/carousel-lamp",
+        "license": "作者授权本项目使用；保留原许可和署名",
+        "path": "asset-sources/carousel/v006/source.blend"
+      },
+      "parts": [
+        {
+          "id": "base",
+          "name": "圆形底座",
+          "nodeNames": [
+            "base"
+          ],
+          "description": "实心平底双层台阶、粉色花瓣彩绘与瓷白台面。",
+          "explodeOffset": [
+            0,
+            -0.1,
+            0
+          ]
+        },
+        {
+          "id": "column",
+          "name": "彩绘中心柱",
+          "nodeNames": [
+            "column"
+          ],
+          "description": "蓝粉郁金香中心柱，细香槟金分段收边。",
+          "explodeOffset": [
+            0,
+            0.04,
+            -0.24
+          ]
+        },
+        {
+          "id": "canopy",
+          "name": "伞顶与花檐",
+          "nodeNames": [
+            "canopy"
+          ],
+          "description": "加高波浪花檐、蓝粉浮雕花饰、玫瑰金双轨、珍珠节点和粉色旗帜。",
+          "explodeOffset": [
+            0,
+            0.33,
+            0
+          ]
+        },
+        {
+          "id": "horses",
+          "name": "三匹雕刻木马",
+          "nodeNames": [
+            "horses"
+          ],
+          "description": "三匹白瓷木马：渐细鼻梁、大眼睛、额前鬃毛、嘴线和分侧错位抬腿。",
+          "explodeOffset": [
+            0.27,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "rods",
+          "name": "连接吊杆",
+          "nodeNames": [
+            "rods"
+          ],
+          "description": "连接底台与伞顶的三组吊杆，含螺旋装饰与端部连接座。",
+          "explodeOffset": [
+            -0.26,
+            0.05,
+            0
+          ]
+        },
+        {
+          "id": "frames",
+          "name": "拍立得与吊饰",
+          "nodeNames": [
+            "frames"
+          ],
+          "description": "原有拍立得与吊饰造型，更新为蓝粉纸面与珐琅配色。",
+          "explodeOffset": [
+            0,
+            0.05,
+            0.27
+          ]
+        },
+        {
+          "id": "lights",
+          "name": "隐藏式灯环",
+          "nodeNames": [
+            "lights"
+          ],
+          "description": "上下花檐共 128 颗粉蓝发光灯珠，另保留内部灯环。",
+          "explodeOffset": [
+            0,
+            0.2,
+            -0.14
+          ]
+        }
+      ],
+      "notes": [
+        "保留已确认圆盘和旋转木马底座、中心柱、拍立得等已有设计。",
+        "花檐花饰改为独立几何，避免环形贴图拉宽；上下金属轨道加深波浪并增加珍珠和彩灯。",
+        "木马头脸改为连续渐细鼻梁，补额前鬃毛、眼神高光和嘴线；前后腿分侧错位。",
+        "v002 模型和原贴图保留，v003 复用蓝粉贴图并更新几何。",
+        "照片窗口仍为蓝粉占位纸面。",
+        "第二轮按选定参考图优化材质与细部，保留第一轮已确认主体结构。",
+        "12 根拍立得绳从波浪花檐下沿起挂，上部珠子移至檐板下方，照片与下端吊饰位置不变。",
+        "v006：重绘与16片棚顶对齐的蓝粉奶油色带和底座花瓣；增强彩釉、金饰颜色，调低彩绘面清漆反光。几何、UV和动画层级保持一致。"
+      ],
+      "modelUrl": "/assets/carousel/v006/model.glb",
+      "stats": {
+        "meshes": 605,
+        "triangles": 476520,
+        "materials": 200,
+        "bytes": 14863812
+      },
+      "thumbnail": "/assets/carousel/thumbnail.png"
+    },
+    {
+      "name": "Code × Craft",
+      "subtitle": "冷银工艺与灯槽 · 第二轮细节 v003",
+      "category": "主体建筑",
+      "description": "围绕同心环梁、精确立柱与可替换代码屏幕制作的真实几何样品。",
+      "notes": [
+        "上层整圈玻璃、下层单格入口，三块曲面代码屏。",
+        "本地 Blender 精修，保留 v001；霓虹泛光由网页渲染器呈现。",
+        "第二轮按选定参考图优化材质与细部，保留第一轮已确认主体结构。",
+        "内圈霓虹灯管独立自转，24 秒一圈，外墙与代码屏幕保持原位。",
+        "中央光柱加入透明底人物全息影像，底边贴合光柱底盘，随视角转向并带轻微点阵扫描效果。"
+      ],
+      "modelUrl": "/assets/craft/v003/model.glb",
+      "id": "craft",
+      "status": "review",
+      "source": {
+        "label": "Blender 可编辑源文件 · v003",
+        "path": "asset-sources/craft/v003/source.blend"
+      },
+      "parts": [
+        {
+          "id": "craft_base",
+          "name": "圆形基座",
+          "nodeNames": [
+            "craft_base"
+          ],
+          "description": "银色基座、中心透明玻璃环与入口踏步。"
+        },
+        {
+          "id": "craft_structure",
+          "name": "环梁与立柱",
+          "nodeNames": [
+            "craft_structure"
+          ],
+          "description": "双层环梁、8 根外柱及后侧斜撑；精确同心对齐。"
+        },
+        {
+          "id": "craft_glass",
+          "name": "分片玻璃",
+          "nodeNames": [
+            "craft_glass"
+          ],
+          "description": "上层八片完整弧形玻璃，下层七片，正门独留一格。"
+        },
+        {
+          "id": "craft_neon",
+          "name": "霓虹灯带",
+          "nodeNames": [
+            "craft_neon"
+          ],
+          "description": "中央 12 根灯管与 5 个光环独立自转，外圈灯槽固定，粉蓝光源轻微呼吸。"
+        },
+        {
+          "id": "craft_core",
+          "name": "中央 AI 光柱",
+          "nodeNames": [
+            "craft_core"
+          ],
+          "description": "透明光柱内的贴地人物全息影像，随视角转向，轻微点阵与扫描线。"
+        },
+        {
+          "id": "craft_screens",
+          "name": "代码屏幕",
+          "nodeNames": [
+            "craft_screens"
+          ],
+          "description": "贴近圆周的三块曲面屏；三行 design 代码左对齐。"
+        },
+        {
+          "id": "craft_hardware",
+          "name": "工艺细节",
+          "nodeNames": [
+            "craft_hardware"
+          ],
+          "description": "沿相邻立柱弦平面对齐的检修盒、紧固件与散热片。"
+        }
+      ],
+      "stats": {
+        "meshes": 271,
+        "triangles": 146856,
+        "materials": 12,
+        "bytes": 3638904
+      },
+      "thumbnailUrl": "/assets/craft/v002/thumbnail.png",
+      "thumbnail": "/assets/craft/thumbnail.png"
+    },
+    {
+      "name": "业务 × Link",
+      "subtitle": "双心连接摩天轮 · 加宽底座与蓝格地垫 v012",
+      "category": "主体装置",
+      "description": "居中双 A 架、加宽双心轨道、八个硬壳吊舱与轮毂设备。",
+      "notes": [
+        "底座直径扩大约12.7%，八个柱脚全部落在平整盘面内，保留边缘余量。",
+        "中心花饰替换为圆形蓝白棋盘格地垫，外圈放射铺装和侧边心形装饰保留。",
+        "通透金属栏杆和浅蓝环形沙发，八个车厢沿轨道等弧长排布。",
+        "前后斜撑以轨道为镜面对称，顶端共接轮毂下方，底脚前后展开。",
+        "横梁、辐条、轮毂与丘比特侧面对齐轨道，无后伸连接段；轮毂上移0.10。",
+        "丘比特保留托腮造型和下方交会处高度。",
+        "吊舱横向连接杆从0.50缩短到0.28，舱体整体靠轨道0.22。"
+      ],
+      "id": "link",
+      "status": "review",
+      "modelUrl": "/assets/link/v012/model.glb",
+      "source": {
+        "label": "可编辑 Blender · v012",
+        "path": "asset-sources/link/v012/source.blend"
+      },
+      "parts": [
+        {
+          "id": "link_base",
+          "name": "圆形共用底座",
+          "nodeNames": [
+            "link_base"
+          ],
+          "description": "加宽瓷白底座完整包住八个柱脚，中央蓝白棋盘格圆垫，外圈保留粉蓝放射铺装。"
+        },
+        {
+          "id": "link_supports",
+          "name": "双 A 架与后撑",
+          "nodeNames": [
+            "link_supports"
+          ],
+          "description": "前后关于轨道平面镜面对称的斜撑，顶端共接轮毂下方，底脚斜向落地。"
+        },
+        {
+          "id": "link_track",
+          "name": "双心复合外缘单轨",
+          "nodeNames": [
+            "link_track"
+          ],
+          "description": "横向舒展的双心并集闭合带状单轨，粉蓝厚边与白色包边。"
+        },
+        {
+          "id": "link_spokes",
+          "name": "辐条与轮毂",
+          "nodeNames": [
+            "link_spokes"
+          ],
+          "description": "横梁、辐条与轮毂保持轨道平面位置，无后伸连接段；取消贯穿丘比特的横梁。"
+        },
+        {
+          "id": "link_lights",
+          "name": "轨道与支架灯",
+          "nodeNames": [
+            "link_lights"
+          ],
+          "description": "轨道白色灯珠、粉蓝霓虹和 A 架嵌入式灯槽。"
+        },
+        {
+          "id": "link_gondolas",
+          "name": "完整吊舱 × 8",
+          "nodeNames": [
+            "link_gondolas"
+          ],
+          "description": "八个等弧长排列的吊舱：通透金属栏杆、粉蓝环形软沙发、原分片顶棚与珠形吊点。"
+        },
+        {
+          "id": "link_devices",
+          "name": "电脑与手机",
+          "nodeNames": [
+            "link_devices"
+          ],
+          "description": "缩小至轮毂轮廓内的设备，闭合实体心形与笑脸。"
+        },
+        {
+          "id": "link_ornament",
+          "name": "底座心形装饰",
+          "nodeNames": [
+            "link_ornament"
+          ],
+          "description": "沿圆形底座侧壁整圈排列的立体粉色心形。"
+        },
+        {
+          "id": "link_cupid",
+          "name": "双心丘比特",
+          "nodeNames": [
+            "link_cupid"
+          ],
+          "description": "丘比特深度中心与轨道对齐，下移到双心下方交会处，保留原托腮姿态。"
+        }
+      ],
+      "stats": {
+        "meshes": 106,
+        "triangles": 780764,
+        "materials": 27,
+        "bytes": 30800928
+      },
+      "thumbnailUrl": "/assets/link/v012/thumbnail.png",
+      "thumbnail": "/assets/link/thumbnail.png"
+    },
+    {
+      "id": "island",
+      "name": "Island · 梦核圆盘",
+      "subtitle": "瓷釉圆盘 · 第二轮细节 v009",
+      "category": "场景底盘",
+      "status": "review",
+      "description": "保留梯形上沿，凹面四角改为连续圆角；铭文去描边，蓝粉花纹与文字增加细碎闪粉质感。",
+      "notes": [
+        "凸起进深 0.24m，铺装与凸起后缘相隔 3cm。",
+        "凹面四角采用 0.16m 圆角，保留四边统一收边。",
+        "imagegen 编辑无描边闪粉贴图，搭配低粗糙度清漆材质。",
+        "第二轮按选定参考图优化材质与细部，保留第一轮已确认主体结构。"
+      ],
+      "modelUrl": "/assets/island/v009/model.glb",
+      "thumbnail": "/assets/island/thumbnail.png",
+      "source": {
+        "label": "Blender 可编辑源文件 · v009",
+        "path": "asset-sources/island/v009/source.blend"
+      },
+      "parts": [
+        {
+          "id": "island_base",
+          "name": "紧凑直背凸起底盘",
+          "nodeNames": [
+            "island_base"
+          ],
+          "description": "凸起进深 0.24m；平面铺装与后缘间隔 0.03m，背面直落并保留小倒角。"
+        },
+        {
+          "id": "island_border",
+          "name": "四边清晰浅凹陶瓷边缘",
+          "nodeNames": [
+            "island_border"
+          ],
+          "description": "凹面四角 0.16m 连续圆角，去描边闪粉铭文，保留瓷白留边。"
+        },
+        {
+          "id": "island_paving",
+          "name": "穆夏陶瓷铺装",
+          "nodeNames": [
+            "island_paving"
+          ],
+          "description": "根据选定参考图生成的粉蓝穆夏贴图；平面 UV、清漆陶瓷材质。"
+        },
+        {
+          "id": "island_math",
+          "name": "心形函数图",
+          "nodeNames": [
+            "island_math"
+          ],
+          "description": "独立的蓝色心形曲线、极坐标虚线与坐标轴。"
+        }
+      ],
+      "stats": {
+        "meshes": 4,
+        "triangles": 228014,
+        "materials": 4,
+        "bytes": 8022496
+      }
+    },
+    {
+      "id": "dog",
+      "name": "小狗 · 散步伙伴",
+      "subtitle": "柔和毛发与湿润眼眸 · v002",
+      "category": "角色资产",
+      "status": "review",
+      "description": "7 万面写实小狗，保留毛发纹理与湿润角膜高光。8 秒循环慢步，头部缓慢转向，卷尾间歇轻摇。",
+      "source": {
+        "label": "Blender 绑定动画源文件 · v002",
+        "path": "asset-sources/dog/v002/source.blend",
+        "license": "用户提供模型，本地优化与绑定"
+      },
+      "modelUrl": "/assets/dog/v002/model.glb",
+      "thumbnail": "/assets/dog/v002/thumbnail.png",
+      "animation": {
+        "defaultClip": "Walk_InPlace",
+        "duration": 8
+      },
+      "parts": [
+        {
+          "id": "dog_body",
+          "name": "毛发与身体",
+          "nodeNames": [
+            "dog_body"
+          ],
+          "description": "保留原有轮廓的 7 万面蒙皮网格，柔和非金属毛发材质。",
+          "explodeOffset": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "dog_eyes",
+          "name": "反光眼部",
+          "nodeNames": [
+            "dog_eyes"
+          ],
+          "description": "保留虹膜纹理，独立低粗糙度角膜高光，跟随头部骨骼。",
+          "explodeOffset": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "notes": [
+        "Walk_InPlace 为原地无缝散步；Walk_Forward 带前进位移，保留在下载文件中。",
+        "与上一版使用相同的骨骼、权重和步态；只分离眼部材质网格，不改变几何。",
+        "4K 毛色保留，法线降至 1K，移除不适合毛发的金属度贴图。"
+      ],
+      "stats": {
+        "meshes": 2,
+        "triangles": 70000,
+        "materials": 2,
+        "bytes": 5638876
+      }
+    }
+  ]
+}

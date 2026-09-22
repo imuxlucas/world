@@ -1,0 +1,100 @@
+{
+  "name": "业务 × Link",
+  "subtitle": "双心连接摩天轮 · 参考细节精修 v007",
+  "category": "主体装置",
+  "description": "居中双 A 架、加宽双心轨道、八个硬壳吊舱与轮毂设备。",
+  "notes": [
+    "保留用户丘比特和 v006 直梁位置、粗细、正面遮挡。",
+    "八个吊舱增加金属顶棚分缝、珠形吊点、金色连接环、双层栏杆与分层底圈；顶棚仍为无布纹瓷白硬壳。",
+    "加强粉蓝珐琅、轮毂设备边框、底座圆润心形与中心花纹。",
+    "新吊舱细节全轨迹净空下界 0.0202；仅直立平移，不含摆动或整机安全校核。"
+  ],
+  "id": "link",
+  "status": "review",
+  "modelUrl": "/assets/link/v007/model.glb",
+  "source": {
+    "label": "可编辑 Blender · v007",
+    "path": "asset-sources/link/v007/source.blend"
+  },
+  "parts": [
+    {
+      "id": "link_base",
+      "name": "圆形共用底座",
+      "nodeNames": [
+        "link_base"
+      ],
+      "description": "加厚瓷白圆盘、粉蓝放射铺装，前后脚点围绕圆心对称。"
+    },
+    {
+      "id": "link_supports",
+      "name": "双 A 架与后撑",
+      "nodeNames": [
+        "link_supports"
+      ],
+      "description": "加宽开叉的四角凹槽型材，前后脚点对称，独立锚座。"
+    },
+    {
+      "id": "link_track",
+      "name": "双心复合外缘单轨",
+      "nodeNames": [
+        "link_track"
+      ],
+      "description": "横向舒展的双心并集闭合带状单轨，粉蓝厚边与白色包边。"
+    },
+    {
+      "id": "link_spokes",
+      "name": "辐条与轮毂",
+      "nodeNames": [
+        "link_spokes"
+      ],
+      "description": "扩大双轮毂，横向连接梁及丘比特承重悬臂。"
+    },
+    {
+      "id": "link_lights",
+      "name": "轨道与支架灯",
+      "nodeNames": [
+        "link_lights"
+      ],
+      "description": "轨道白色灯珠、粉蓝霓虹和 A 架嵌入式灯槽。"
+    },
+    {
+      "id": "link_gondolas",
+      "name": "完整吊舱 × 8",
+      "nodeNames": [
+        "link_gondolas"
+      ],
+      "description": "瓷白硬壳顶棚与实体金属分缝，珠形吊点、金色连接环、双层栏杆和分层底圈。"
+    },
+    {
+      "id": "link_devices",
+      "name": "电脑与手机",
+      "nodeNames": [
+        "link_devices"
+      ],
+      "description": "缩小至轮毂轮廓内的设备，闭合实体心形与笑脸。"
+    },
+    {
+      "id": "link_ornament",
+      "name": "底座心形装饰",
+      "nodeNames": [
+        "link_ornament"
+      ],
+      "description": "沿圆形底座侧壁整圈排列的立体粉色心形。"
+    },
+    {
+      "id": "link_cupid",
+      "name": "双心丘比特",
+      "nodeNames": [
+        "link_cupid"
+      ],
+      "description": "轮毂之间保持单根直横梁，从丘比特侧面肩部中心贯穿承重，无回折梁或背部支架。"
+    }
+  ],
+  "stats": {
+    "meshes": 93,
+    "triangles": 674376,
+    "materials": 22,
+    "bytes": 29259920
+  },
+  "thumbnailUrl": "/assets/link/v007/thumbnail.png"
+}

@@ -1,0 +1,13 @@
+.dots-demo { position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff; }
+.dots-demo::after { content: ''; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 10%); }
+.dots-demo-image, .dots-demo-video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.dots-demo-image { user-select: none; }
+.dots-hotspot { position: absolute; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.dots-hotspot:focus-visible { outline: 2px solid #2563eb; outline-offset: -2px; }
+.dots-thinking { left: 52.1%; top: 49%; width: 16%; height: 36%; }
+.dots-interface { left: 62.8%; top: 43.8%; width: 17.5%; height: 38%; clip-path: polygon(10% 0,100% 6%,90% 100%,0 94%); }
+.dots-home { left: 6.5%; top: 1%; width: 6.5%; height: 5%; }
+.dots-chatgpt { left: 6.6%; top: 18.7%; width: 20.9%; height: 45.4%; border-radius: 6%; }
+.dots-demo-video { background: #000; }
+.dots-video-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.dots-video-close:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }

@@ -1,0 +1,99 @@
+{
+  "name": "业务 × Link",
+  "subtitle": "双心连接摩天轮 · 后置丘比特 v004",
+  "category": "主体装置",
+  "description": "居中双 A 架、加宽双心轨道、八个硬壳吊舱与轮毂设备。",
+  "notes": [
+    "保留用户丘比特造型与原始 PBR 贴图。",
+    "丘比特后移 0.94 场景单位，承重横梁后置，通过背部短支撑连接。",
+    "直立吊舱全路径保守净空下界 0.126 场景单位；不含吊舱摆动或整机运动校核。"
+  ],
+  "id": "link",
+  "status": "review",
+  "modelUrl": "/assets/link/v004/model.glb",
+  "source": {
+    "label": "可编辑 Blender · v004",
+    "path": "asset-sources/link/v004/source.blend"
+  },
+  "parts": [
+    {
+      "id": "link_base",
+      "name": "圆形共用底座",
+      "nodeNames": [
+        "link_base"
+      ],
+      "description": "加厚瓷白圆盘、粉蓝放射铺装，前后脚点围绕圆心对称。"
+    },
+    {
+      "id": "link_supports",
+      "name": "双 A 架与后撑",
+      "nodeNames": [
+        "link_supports"
+      ],
+      "description": "加宽开叉的四角凹槽型材，前后脚点对称，独立锚座。"
+    },
+    {
+      "id": "link_track",
+      "name": "双心复合外缘单轨",
+      "nodeNames": [
+        "link_track"
+      ],
+      "description": "横向舒展的双心并集闭合带状单轨，粉蓝厚边与白色包边。"
+    },
+    {
+      "id": "link_spokes",
+      "name": "辐条与轮毂",
+      "nodeNames": [
+        "link_spokes"
+      ],
+      "description": "扩大双轮毂，横向连接梁及丘比特承重悬臂。"
+    },
+    {
+      "id": "link_lights",
+      "name": "轨道与支架灯",
+      "nodeNames": [
+        "link_lights"
+      ],
+      "description": "轨道白色灯珠、粉蓝霓虹和 A 架嵌入式灯槽。"
+    },
+    {
+      "id": "link_gondolas",
+      "name": "完整吊舱 × 8",
+      "nodeNames": [
+        "link_gondolas"
+      ],
+      "description": "无条纹光滑硬壳顶棚，八根立柱、深蓝围栏、独立吊点。"
+    },
+    {
+      "id": "link_devices",
+      "name": "电脑与手机",
+      "nodeNames": [
+        "link_devices"
+      ],
+      "description": "缩小至轮毂轮廓内的设备，闭合实体心形与笑脸。"
+    },
+    {
+      "id": "link_ornament",
+      "name": "底座心形装饰",
+      "nodeNames": [
+        "link_ornament"
+      ],
+      "description": "沿圆形底座侧壁整圈排列的立体粉色心形。"
+    },
+    {
+      "id": "link_cupid",
+      "name": "双心丘比特",
+      "nodeNames": [
+        "link_cupid"
+      ],
+      "description": "丘比特后移，横梁绕至雕像背后；直立吊舱沿完整轨迹的扫掠包围盒净空已检查。"
+    }
+  ],
+  "stats": {
+    "meshes": 61,
+    "triangles": 368636,
+    "materials": 18,
+    "bytes": 20622620
+  },
+  "thumbnailUrl": "/assets/link/v004/thumbnail.png"
+}

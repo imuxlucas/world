@@ -1,0 +1,121 @@
+{
+  "id": "carousel",
+  "name": "旋转木马 · Workflow",
+  "subtitle": "蓝粉瓷彩 · 波浪花檐与旗帜 v002",
+  "category": "核心主体",
+  "status": "review",
+  "description": "按选定参考图精修：落地双层台阶、蓝粉花瓣底座、郁金香中心柱、扇形条纹伞顶、花檐和旗帜；白瓷木马配心形蓝粉马鞍。",
+  "source": {
+    "label": "Carousel Lamp · 咕噜蛋Daria",
+    "url": "https://github.com/Daria1216/carousel-lamp",
+    "license": "作者授权本项目使用；保留原许可和署名",
+    "path": "asset-sources/carousel/v002/source.blend"
+  },
+  "parts": [
+    {
+      "id": "base",
+      "name": "圆形底座",
+      "nodeNames": [
+        "base"
+      ],
+      "description": "实心平底双层台阶、粉色花瓣彩绘与瓷白台面。",
+      "explodeOffset": [
+        0,
+        -0.1,
+        0
+      ]
+    },
+    {
+      "id": "column",
+      "name": "彩绘中心柱",
+      "nodeNames": [
+        "column"
+      ],
+      "description": "蓝粉郁金香中心柱，细香槟金分段收边。",
+      "explodeOffset": [
+        0,
+        0.04,
+        -0.24
+      ]
+    },
+    {
+      "id": "canopy",
+      "name": "伞顶与花檐",
+      "nodeNames": [
+        "canopy"
+      ],
+      "description": "蓝粉瓷白条纹、波浪花檐、珍珠包边、菱形吊饰与顶部粉旗。",
+      "explodeOffset": [
+        0,
+        0.33,
+        0
+      ]
+    },
+    {
+      "id": "horses",
+      "name": "三匹雕刻木马",
+      "nodeNames": [
+        "horses"
+      ],
+      "description": "三匹白瓷木马、浅金鬃毛、蓝粉心形马鞍。",
+      "explodeOffset": [
+        0.27,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rods",
+      "name": "连接吊杆",
+      "nodeNames": [
+        "rods"
+      ],
+      "description": "连接底台与伞顶的三组吊杆，含螺旋装饰与端部连接座。",
+      "explodeOffset": [
+        -0.26,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "frames",
+      "name": "拍立得与吊饰",
+      "nodeNames": [
+        "frames"
+      ],
+      "description": "原有拍立得与吊饰造型，更新为蓝粉纸面与珐琅配色。",
+      "explodeOffset": [
+        0,
+        0.05,
+        0.27
+      ]
+    },
+    {
+      "id": "lights",
+      "name": "隐藏式灯环",
+      "nodeNames": [
+        "lights"
+      ],
+      "description": "独立灯环网格，可后续调整发光强度；不含原站的屏幕空间光晕。",
+      "explodeOffset": [
+        0,
+        0.2,
+        -0.14
+      ]
+    }
+  ],
+  "notes": [
+    "作者授权复用；保留原作者署名与许可。",
+    "底座改为平底实心双层台阶，最低点为地面 y=0。",
+    "四张新彩绘贴图使用内置 imagegen 生成，源图与提示词保存在 v002。",
+    "保留拍立得、吊杆、吊饰几何；照片窗口暂用蓝粉纸面，待填入真实项目照片。",
+    "木马白瓷体在 Blender 中融合接缝，马鞍与马镫重新调整。"
+  ],
+  "modelUrl": "/assets/carousel/v002/model.glb",
+  "stats": {
+    "meshes": 343,
+    "triangles": 324708,
+    "materials": 200,
+    "bytes": 16455788
+  }
+}

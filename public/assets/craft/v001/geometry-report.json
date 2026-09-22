@@ -1,0 +1,131 @@
+{
+  "asset": "craft",
+  "checks": "Object meshes after modifier application; outward normals recalculated; finite coordinates, face area and edge manifold checks. Separate intersecting solids are deliberate assembly pieces, not boolean-unioned.",
+  "objects": [
+    {
+      "mesh": "craft_base__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_base__Cold_silver",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_neon__Cyan_light_strips",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_base__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_structure__Cold_silver",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_hardware__Polished_silver",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_neon__Pink_light_strips",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_glass__Blue_architectural_glass",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_hardware__Midnight_screen",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_core__Cold_silver",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_core__Blue_architectural_glass",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_hardware__Cold_silver",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_screens__Cold_silver",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_screens__Midnight_screen",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_screens__Cyan_light_strips",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_screens__Warm_white_lamp_beads",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "craft_screens__Pink_light_strips",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    }
+  ],
+  "limitations": [
+    "No global self-intersection solver or full animation collision sweep was performed.",
+    "Zero boundary edges does not prove an assembled part has no collision.",
+    "Island decals are intentionally single sided; font caps may have open triangulated boundaries depending on font conversion.",
+    "Lighting, metal reflection and transparent glass must also be checked in the Three.js viewer."
+  ]
+}

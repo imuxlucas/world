@@ -1,0 +1,101 @@
+{
+  "name": "业务 × Link",
+  "subtitle": "双心连接摩天轮 · 通透车厢与避让支架 v010",
+  "category": "主体装置",
+  "description": "居中双 A 架、加宽双心轨道、八个硬壳吊舱与轮毂设备。",
+  "notes": [
+    "移除64片深色实心侧板和8个中央座板，改为通透栏杆内的浅蓝环形软沙发。",
+    "八个车厢按同一闭合轨道长度八等分，静态模型与网页动画起点一致。",
+    "A架前后分离，轮毂上移0.28，辐条与轴承连接同步调整。",
+    "删除贯肩横梁，丘比特保留托腮造型并下移至下方交会处。",
+    "全轨迹结构净空保守下界 0.0761 模型米；不包含真实载荷、摆动或工程安全认证。"
+  ],
+  "id": "link",
+  "status": "review",
+  "modelUrl": "/assets/link/v010/model.glb",
+  "source": {
+    "label": "可编辑 Blender · v010",
+    "path": "asset-sources/link/v010/source.blend"
+  },
+  "parts": [
+    {
+      "id": "link_base",
+      "name": "圆形共用底座",
+      "nodeNames": [
+        "link_base"
+      ],
+      "description": "加厚瓷白圆盘、粉蓝放射铺装，前后脚点围绕圆心对称。"
+    },
+    {
+      "id": "link_supports",
+      "name": "双 A 架与后撑",
+      "nodeNames": [
+        "link_supports"
+      ],
+      "description": "前后展开的双 A 架、独立抬高轴承和底脚，避开完整车厢运行空间。"
+    },
+    {
+      "id": "link_track",
+      "name": "双心复合外缘单轨",
+      "nodeNames": [
+        "link_track"
+      ],
+      "description": "横向舒展的双心并集闭合带状单轨，粉蓝厚边与白色包边。"
+    },
+    {
+      "id": "link_spokes",
+      "name": "辐条与轮毂",
+      "nodeNames": [
+        "link_spokes"
+      ],
+      "description": "上移的双轮毂与重新对准的辐条；移除贯穿丘比特的横梁。"
+    },
+    {
+      "id": "link_lights",
+      "name": "轨道与支架灯",
+      "nodeNames": [
+        "link_lights"
+      ],
+      "description": "轨道白色灯珠、粉蓝霓虹和 A 架嵌入式灯槽。"
+    },
+    {
+      "id": "link_gondolas",
+      "name": "完整吊舱 × 8",
+      "nodeNames": [
+        "link_gondolas"
+      ],
+      "description": "八个等弧长排列的吊舱：通透金属栏杆、粉蓝环形软沙发、原分片顶棚与珠形吊点。"
+    },
+    {
+      "id": "link_devices",
+      "name": "电脑与手机",
+      "nodeNames": [
+        "link_devices"
+      ],
+      "description": "缩小至轮毂轮廓内的设备，闭合实体心形与笑脸。"
+    },
+    {
+      "id": "link_ornament",
+      "name": "底座心形装饰",
+      "nodeNames": [
+        "link_ornament"
+      ],
+      "description": "沿圆形底座侧壁整圈排列的立体粉色心形。"
+    },
+    {
+      "id": "link_cupid",
+      "name": "双心丘比特",
+      "nodeNames": [
+        "link_cupid"
+      ],
+      "description": "保留原托腮雕塑，下移至双心下方交会处，以双肘搭在轨道上。"
+    }
+  ],
+  "stats": {
+    "meshes": 105,
+    "triangles": 798332,
+    "materials": 25,
+    "bytes": 31310996
+  },
+  "thumbnailUrl": "/assets/link/v010/thumbnail.png"
+}

@@ -1,0 +1,355 @@
+{
+  "asset": "link",
+  "checks": "Object meshes after modifier application; outward normals recalculated; finite coordinates, face area and edge manifold checks. Separate intersecting solids are deliberate assembly pieces, not boolean-unioned.",
+  "objects": [
+    {
+      "mesh": "link_base__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_base__Milk_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_base__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_ornament__Dream_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_track__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_lights__Cyan_light_strips",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_lights__Pink_light_strips",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_lights__Warm_white_lamp_beads",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_supports__Dream_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_supports__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_supports__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_spokes__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_supports__Dream_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_01__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_01__Small_warm_brass_details",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_01__Milk_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_01__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_02__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_02__Small_warm_brass_details",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_02__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_03__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_03__Small_warm_brass_details",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_03__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_04__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_04__Small_warm_brass_details",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_04__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_05__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_05__Small_warm_brass_details",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_05__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_06__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_06__Small_warm_brass_details",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_06__Milk_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_06__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_07__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_07__Small_warm_brass_details",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_07__Milk_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_07__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_08__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_08__Small_warm_brass_details",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_08__Milk_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_gondola_08__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_devices__Milk_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_devices__Cyan_light_strips",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_devices__Porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_devices__Smile_yellow",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_devices__Midnight_screen",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_devices__Milk_blue",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_devices__Dream_pink",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "link_devices__Warm_white_lamp_beads",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    }
+  ],
+  "limitations": [
+    "No global self-intersection solver or full animation collision sweep was performed.",
+    "Zero boundary edges does not prove an assembled part has no collision.",
+    "Island decals are intentionally single sided; font caps may have open triangulated boundaries depending on font conversion.",
+    "Lighting, metal reflection and transparent glass must also be checked in the Three.js viewer."
+  ]
+}

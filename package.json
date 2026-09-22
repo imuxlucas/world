@@ -1,0 +1,28 @@
+{
+  "name": "lucas-okr-asset-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5178 --strictPort",
+    "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --mode pages",
+    "preview:pages": "vite preview --mode pages --host 127.0.0.1 --port 4178 --strictPort",
+    "preview": "vite preview --host 127.0.0.1 --port 4178 --strictPort"
+  },
+  "dependencies": {
+    "@tencent/tad-universal-biz-ms": "1.36.4",
+    "@tencent/tad-universal-biz-mx": "1.61.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@types/three": "0.170.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "typescript": "5.7.3",
+    "vite": "5.4.21"
+  }
+}

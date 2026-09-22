@@ -1,0 +1,61 @@
+import * as THREE from 'three';
+import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { createCarouselAsset } from '../../src/assets/carousel';
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#eef0f6');
+const environment = new RoomEnvironment();
+const pmrem = new THREE.PMREMGenerator(renderer);
+const env = pmrem.fromScene(environment, 0.04);
+scene.environment = env.texture;
+environment.dispose();
+pmrem.dispose();
+const camera = new THREE.PerspectiveCamera(34, innerWidth / innerHeight, 0.1, 100);
+camera.position.set(8.8, 7.5, 13);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 3.1, 0);
+controls.update();
+scene.add(new THREE.HemisphereLight('#ffffff', '#c5a890', 1.7));
+const sun = new THREE.DirectionalLight('#fff4df', 3);
+sun.position.set(5, 9, 5);
+scene.add(sun);
+renderer.setAnimationLoop(() => renderer.render(scene, camera));
+addEventListener('resize', () => {
+  renderer.setSize(innerWidth, innerHeight);
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+});
+
+const result = (async () => {
+  const asset = await createCarouselAsset();
+  scene.add(asset);
+  const bbox = new THREE.Box3().setFromObject(asset);
+  let triangles = 0, meshes = 0;
+  const materials = new Set<THREE.Material>();
+  asset.traverse((node) => {
+    if (!(node instanceof THREE.Mesh)) return;
+    meshes++;
+    triangles += (node.geometry.index?.count ?? node.geometry.attributes.position.count) / 3;
+    (Array.isArray(node.material) ? node.material : [node.material]).forEach(m => materials.add(m));
+  });
+  const stats = { meshes, triangles, materials: materials.size, dimensions: bbox.getSize(new THREE.Vector3()).toArray(), parts: asset.children.map(n => ({ name: n.name, meshes: (() => { let count = 0; n.traverse(o => { if (o instanceof THREE.Mesh) count++; }); return count; })() })) };
+  const buffer = await new GLTFExporter().parseAsync(asset, { binary: true, onlyVisible: true, maxTextureSize: 2048 });
+  if (!(buffer instanceof ArrayBuffer)) throw new Error('GLB export did not produce binary data.');
+  const blob = new Blob([buffer], { type: 'model/gltf-binary' });
+  const link = document.querySelector<HTMLAnchorElement>('#download')!;
+  link.href = URL.createObjectURL(blob);
+  link.download = 'carousel-lamp-parts-v01.glb';
+  link.textContent = `下载 GLB · ${(buffer.byteLength / 1024 / 1024).toFixed(2)} MB`;
+  document.querySelector('#stats')!.textContent = JSON.stringify({ ...stats, bytes: buffer.byteLength }, null, 2);
+  return { buffer, stats };
+})();
+(window as Window & { __carouselExport?: typeof result }).__carouselExport = result;
+result.catch(error => { document.querySelector('#stats')!.textContent = String(error); console.error(error); });

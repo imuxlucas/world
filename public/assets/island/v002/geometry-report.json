@@ -1,0 +1,86 @@
+{
+  "asset": "island",
+  "checks": "Object meshes after modifier application; outward normals recalculated; finite coordinates, face area and edge manifold checks. Separate intersecting solids are deliberate assembly pieces, not boolean-unioned.",
+  "objects": [
+    {
+      "mesh": "island_base__Pearl_porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_border__Pearl_porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_border__Blush_porcelain_seam",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_paving__Mucha_glazed_ceramic",
+      "degenerateFaces": 0,
+      "boundaryEdges": 256,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_plaque__Pearl_porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_plaque__Blush_porcelain_seam",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_plaque__Cobalt_serif_enamel",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_plaque__Rose_enamel_ornament",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_math__Cobalt_serif_enamel",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    }
+  ],
+  "limitations": [
+    "No global self-intersection solver or full animation collision sweep was performed.",
+    "Zero boundary edges does not prove an assembled part has no collision.",
+    "Island decals are intentionally single sided; font caps may have open triangulated boundaries depending on font conversion.",
+    "Lighting, metal reflection and transparent glass must also be checked in the Three.js viewer."
+  ],
+  "dimensions": {
+    "radius": 5.2,
+    "bodyThickness": 0.56,
+    "previousThickness": 0.23,
+    "plaqueRadius": 5.274,
+    "plaqueBackRadius": 5.129
+  },
+  "texture": {
+    "path": "public/assets/island/v002/mucha-ceramic-basecolor.png",
+    "width": 1254
+  }
+}

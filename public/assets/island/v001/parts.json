@@ -1,0 +1,67 @@
+{
+  "name": "Island · 梦核圆盘",
+  "subtitle": "圆形铺装与心形函数 · 原创结构拆件 v001",
+  "category": "场景底盘",
+  "description": "圆形薄底盘、独立粉蓝铺装、心形函数图与公式铭牌。",
+  "notes": [
+    "本轮花瓣线和放射铺装为可编辑样稿；不是选定图中完整穆夏图案的最终还原。",
+    "平面铺装是有意设计的单面贴花几何，QA 中会与实体结构的开边分开记录。",
+    "建议后续将平面装饰烘成清晰纹理，保留地面主体的低绘制开销。"
+  ],
+  "id": "island",
+  "status": "review",
+  "modelUrl": "/assets/island/v001/model.glb",
+  "source": {
+    "label": "原创 Blender 程序建模 · v001",
+    "path": "asset-sources/island/v001/source.blend"
+  },
+  "parts": [
+    {
+      "id": "island_base",
+      "name": "圆形岛屿底盘",
+      "nodeNames": [
+        "island_base"
+      ],
+      "description": "整体保持真正圆形，原点为圆心，薄圆盘和圆边独立。"
+    },
+    {
+      "id": "island_border",
+      "name": "粉蓝边缘",
+      "nodeNames": [
+        "island_border"
+      ],
+      "description": "同心浅色包边与细圆环。"
+    },
+    {
+      "id": "island_paving",
+      "name": "放射铺装",
+      "nodeNames": [
+        "island_paving"
+      ],
+      "description": "独立的粉蓝放射铺装与曲线花瓣图样，尚待最终穆夏纹样精修。"
+    },
+    {
+      "id": "island_math",
+      "name": "心形函数图",
+      "nodeNames": [
+        "island_math"
+      ],
+      "description": "平面心形函数线、坐标轴和标记，独立可替换。"
+    },
+    {
+      "id": "island_plaque",
+      "name": "公式铭牌",
+      "nodeNames": [
+        "island_plaque"
+      ],
+      "description": "正面弧形承载区与清晰实体字形，可后续更换矢量贴图。"
+    }
+  ],
+  "stats": {
+    "meshes": 11,
+    "triangles": 50228,
+    "materials": 6,
+    "bytes": 1234540
+  },
+  "thumbnailUrl": "/assets/island/v001/thumbnail.png"
+}

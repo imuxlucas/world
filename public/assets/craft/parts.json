@@ -1,0 +1,86 @@
+{
+  "name": "Code × Craft",
+  "subtitle": "冷银工艺与灯槽 · 第二轮细节 v003",
+  "category": "主体建筑",
+  "description": "围绕同心环梁、精确立柱与可替换代码屏幕制作的真实几何样品。",
+  "notes": [
+    "上层整圈玻璃、下层单格入口，三块曲面代码屏。",
+    "本地 Blender 精修，保留 v001；霓虹泛光由网页渲染器呈现。",
+    "第二轮按选定参考图优化材质与细部，保留第一轮已确认主体结构。",
+    "内圈霓虹灯管独立自转，24 秒一圈，外墙与代码屏幕保持原位。",
+    "中央光柱加入透明底人物全息影像，底边贴合光柱底盘，随视角转向并带轻微点阵扫描效果。"
+  ],
+  "modelUrl": "/assets/craft/v003/model.glb",
+  "id": "craft",
+  "status": "review",
+  "source": {
+    "label": "Blender 可编辑源文件 · v003",
+    "path": "asset-sources/craft/v003/source.blend"
+  },
+  "parts": [
+    {
+      "id": "craft_base",
+      "name": "圆形基座",
+      "nodeNames": [
+        "craft_base"
+      ],
+      "description": "银色基座、中心透明玻璃环与入口踏步。"
+    },
+    {
+      "id": "craft_structure",
+      "name": "环梁与立柱",
+      "nodeNames": [
+        "craft_structure"
+      ],
+      "description": "双层环梁、8 根外柱及后侧斜撑；精确同心对齐。"
+    },
+    {
+      "id": "craft_glass",
+      "name": "分片玻璃",
+      "nodeNames": [
+        "craft_glass"
+      ],
+      "description": "上层八片完整弧形玻璃，下层七片，正门独留一格。"
+    },
+    {
+      "id": "craft_neon",
+      "name": "霓虹灯带",
+      "nodeNames": [
+        "craft_neon"
+      ],
+      "description": "中央 12 根灯管与 5 个光环独立自转，外圈灯槽固定，粉蓝光源轻微呼吸。"
+    },
+    {
+      "id": "craft_core",
+      "name": "中央 AI 光柱",
+      "nodeNames": [
+        "craft_core"
+      ],
+      "description": "透明光柱内的贴地人物全息影像，随视角转向，轻微点阵与扫描线。"
+    },
+    {
+      "id": "craft_screens",
+      "name": "代码屏幕",
+      "nodeNames": [
+        "craft_screens"
+      ],
+      "description": "贴近圆周的三块曲面屏；三行 design 代码左对齐。"
+    },
+    {
+      "id": "craft_hardware",
+      "name": "工艺细节",
+      "nodeNames": [
+        "craft_hardware"
+      ],
+      "description": "沿相邻立柱弦平面对齐的检修盒、紧固件与散热片。"
+    }
+  ],
+  "stats": {
+    "meshes": 271,
+    "triangles": 146856,
+    "materials": 12,
+    "bytes": 3638904
+  },
+  "thumbnailUrl": "/assets/craft/v002/thumbnail.png",
+  "thumbnail": "/assets/craft/v003/thumbnail.png"
+}

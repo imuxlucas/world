@@ -1,0 +1,59 @@
+{
+  "id": "island",
+  "name": "Island · 梦核圆盘",
+  "subtitle": "0.32m 紧凑凸起 · 直背浅凹铭牌 v006",
+  "category": "场景底盘",
+  "status": "review",
+  "description": "缩短前缘凸起，后缘近乎垂直落至铺装；加强左右凹槽边界，并按宽 96%、高 92% 调整贴图。",
+  "notes": [
+    "凸起从外缘向圆心仅延伸 0.32m，避免占用放射铺装。",
+    "后缘主体为近垂直块面，上下仅保留约 8mm 圆角过渡。",
+    "贴图相对原位置独立缩放：宽 96%，高 92%。"
+  ],
+  "modelUrl": "/assets/island/v006/model.glb",
+  "thumbnail": "/assets/island/v006/thumbnail.png",
+  "source": {
+    "label": "原创 Blender 紧凑直背底盘 · v006",
+    "path": "asset-sources/island/v006/source.blend"
+  },
+  "parts": [
+    {
+      "id": "island_base",
+      "name": "紧凑直背凸起底盘",
+      "nodeNames": [
+        "island_base"
+      ],
+      "description": "凸起进深 0.32m；靠圆心的背面近乎垂直落下，只在上下交线保留很小圆角。"
+    },
+    {
+      "id": "island_border",
+      "name": "四边清晰浅凹陶瓷边缘",
+      "nodeNames": [
+        "island_border"
+      ],
+      "description": "左右凹面转折收紧；贴图相对原位置宽 96%、高 92%。"
+    },
+    {
+      "id": "island_paving",
+      "name": "穆夏陶瓷铺装",
+      "nodeNames": [
+        "island_paving"
+      ],
+      "description": "根据选定参考图生成的粉蓝穆夏贴图；平面 UV、清漆陶瓷材质。"
+    },
+    {
+      "id": "island_math",
+      "name": "心形函数图",
+      "nodeNames": [
+        "island_math"
+      ],
+      "description": "独立的蓝色心形曲线、极坐标虚线与坐标轴。"
+    }
+  ],
+  "stats": {
+    "meshes": 4,
+    "triangles": 146462,
+    "materials": 4,
+    "bytes": 6409448
+  }
+}

@@ -1,0 +1,12 @@
+.craft-desktop { position: relative; width: 100%; height: 100%; overflow: hidden; isolation: isolate; container-type: inline-size; background: #d0cddd url('/media/craft/wallpaper.jpg') center / cover; }
+.craft-window { position: absolute; width: 70%; overflow: hidden; border-radius: .8cqw; box-shadow: 0 1cqw 3cqw #0003, 0 0 0 1px #0002; background: white; }
+.craft-window-immersive { left: 4%; top: 43%; transform: translateY(-50%); }
+.craft-window-whitespace { right: 4%; top: 57%; transform: translateY(-50%); }
+.craft-window-title { display: block; position: relative; width: 100%; height: 3cqw; padding: 0; border: 0; background: #f3f3f5; color: #63636a; font: 500 1.3cqw/3cqw 'PingFang SC',sans-serif; cursor: pointer; }
+.craft-video-surface { display: block; position: relative; width: 100%; aspect-ratio: 16/9; padding: 0; border: 0; overflow: hidden; background: white; }
+.craft-video-surface { cursor: pointer; }
+.craft-video-surface video { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.craft-window button:focus-visible { outline: 2px solid #2563eb; outline-offset: -2px; }
+.craft-window-immersive .craft-window-title { background: #242424; color: #eee; }
+.craft-window-title { cursor: grab; touch-action: none; user-select: none; }
+.craft-window-title:active { cursor: grabbing; }

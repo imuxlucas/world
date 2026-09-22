@@ -1,0 +1,59 @@
+{
+  "id": "island",
+  "name": "Island · 梦核圆盘",
+  "subtitle": "0.24m 窄边凸起 · 四周瓷白留边 v007",
+  "category": "场景底盘",
+  "status": "review",
+  "description": "平整铺装与凸起分开；四边统一收边截面，彩色铭文横向放宽、纵向缩短并完整留边。",
+  "notes": [
+    "凸起进深 0.24m，完整铺装半径微缩至 4.93m，与凸起后缘相隔 3cm。",
+    "凹槽四边统一 45mm 收边、52mm 凹深；前缘网格加密。",
+    "使用原始批准贴图，按实际彩色边界映射至 4.34m × 0.53m。"
+  ],
+  "modelUrl": "/assets/island/v007/model.glb",
+  "thumbnail": "/assets/island/v007/thumbnail.png",
+  "source": {
+    "label": "原创 Blender 窄边凸起底盘 · v007",
+    "path": "asset-sources/island/v007/source.blend"
+  },
+  "parts": [
+    {
+      "id": "island_base",
+      "name": "紧凑直背凸起底盘",
+      "nodeNames": [
+        "island_base"
+      ],
+      "description": "凸起进深 0.24m；平面铺装与后缘间隔 0.03m，背面直落并保留小倒角。"
+    },
+    {
+      "id": "island_border",
+      "name": "四边清晰浅凹陶瓷边缘",
+      "nodeNames": [
+        "island_border"
+      ],
+      "description": "四边统一 45mm 收边、52mm 凹深，按彩色图案实际边界留白。"
+    },
+    {
+      "id": "island_paving",
+      "name": "穆夏陶瓷铺装",
+      "nodeNames": [
+        "island_paving"
+      ],
+      "description": "根据选定参考图生成的粉蓝穆夏贴图；平面 UV、清漆陶瓷材质。"
+    },
+    {
+      "id": "island_math",
+      "name": "心形函数图",
+      "nodeNames": [
+        "island_math"
+      ],
+      "description": "独立的蓝色心形曲线、极坐标虚线与坐标轴。"
+    }
+  ],
+  "stats": {
+    "meshes": 4,
+    "triangles": 228014,
+    "materials": 4,
+    "bytes": 8239644
+  }
+}

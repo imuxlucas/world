@@ -1,0 +1,82 @@
+{
+  "name": "Code × Craft",
+  "subtitle": "冷银代码工坊 · 曲面玻璃与霓虹精修 v002",
+  "category": "主体建筑",
+  "description": "围绕同心环梁、精确立柱与可替换代码屏幕制作的真实几何样品。",
+  "notes": [
+    "上层整圈玻璃、下层单格入口，三块曲面代码屏。",
+    "本地 Blender 精修，保留 v001；霓虹泛光由网页渲染器呈现。"
+  ],
+  "modelUrl": "/assets/craft/v002/model.glb",
+  "id": "craft",
+  "status": "review",
+  "source": {
+    "label": "Blender 可编辑源文件 · v002",
+    "path": "asset-sources/craft/v002/source.blend"
+  },
+  "parts": [
+    {
+      "id": "craft_base",
+      "name": "圆形基座",
+      "nodeNames": [
+        "craft_base"
+      ],
+      "description": "银色基座、中心透明玻璃环与入口踏步。"
+    },
+    {
+      "id": "craft_structure",
+      "name": "环梁与立柱",
+      "nodeNames": [
+        "craft_structure"
+      ],
+      "description": "双层环梁、8 根外柱及后侧斜撑；精确同心对齐。"
+    },
+    {
+      "id": "craft_glass",
+      "name": "分片玻璃",
+      "nodeNames": [
+        "craft_glass"
+      ],
+      "description": "上层八片完整弧形玻璃，下层七片，正门独留一格。"
+    },
+    {
+      "id": "craft_neon",
+      "name": "霓虹灯带",
+      "nodeNames": [
+        "craft_neon"
+      ],
+      "description": "独立粉蓝发光材质，光源槽与金属分离。"
+    },
+    {
+      "id": "craft_core",
+      "name": "中央 AI 光柱",
+      "nodeNames": [
+        "craft_core"
+      ],
+      "description": "上下贯通的透明光芯、环形机电细节和上层屋顶。"
+    },
+    {
+      "id": "craft_screens",
+      "name": "代码屏幕",
+      "nodeNames": [
+        "craft_screens"
+      ],
+      "description": "贴近圆周的三块曲面屏；三行 design 代码左对齐。"
+    },
+    {
+      "id": "craft_hardware",
+      "name": "工艺细节",
+      "nodeNames": [
+        "craft_hardware"
+      ],
+      "description": "沿相邻立柱弦平面对齐的检修盒、紧固件与散热片。"
+    }
+  ],
+  "stats": {
+    "meshes": 24,
+    "triangles": 131880,
+    "materials": 9,
+    "bytes": 3728440
+  },
+  "thumbnailUrl": "/assets/craft/v002/thumbnail.png"
+}

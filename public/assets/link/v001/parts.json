@@ -1,0 +1,92 @@
+{
+  "name": "业务 × Link",
+  "subtitle": "双心连接摩天轮 · 原创结构拆件 v001",
+  "category": "主体装置",
+  "description": "单条双心并集外轮廓轨道、双 A 架、完整吊舱与双设备符号的实体结构样品。",
+  "notes": [
+    "丘比特雕塑尚未制作；不以粗糙人形占位冒充最终雕塑。",
+    "已计算并验证外轮廓为一个闭合无分支边界，均匀采样保存在 route.json。",
+    "静态样品的吊舱与支架深度错开；沿全路径的运动净空、机构可制造性仍待后续验证。",
+    "灯具按语义分组，可见玻璃及浮雕还需最终美术精修。"
+  ],
+  "id": "link",
+  "status": "review",
+  "modelUrl": "/assets/link/v001/model.glb",
+  "source": {
+    "label": "原创 Blender 程序建模 · v001",
+    "path": "asset-sources/link/v001/source.blend"
+  },
+  "parts": [
+    {
+      "id": "link_base",
+      "name": "圆形共用底座",
+      "nodeNames": [
+        "link_base"
+      ],
+      "description": "两颗心的支架共用一个圆形底座；包含独立前后锚座。"
+    },
+    {
+      "id": "link_supports",
+      "name": "双 A 架与后撑",
+      "nodeNames": [
+        "link_supports"
+      ],
+      "description": "两套可见的 A 形支架、后腿与水平连接梁。"
+    },
+    {
+      "id": "link_track",
+      "name": "双心复合外缘单轨",
+      "nodeNames": [
+        "link_track"
+      ],
+      "description": "计算两颗同高心形的并集外边界，输出一条闭合行走路径。"
+    },
+    {
+      "id": "link_spokes",
+      "name": "辐条与轮毂",
+      "nodeNames": [
+        "link_spokes"
+      ],
+      "description": "支撑轨道的固定结构，双轮毂分别承载电脑与手机图形。"
+    },
+    {
+      "id": "link_lights",
+      "name": "轨道与支架灯",
+      "nodeNames": [
+        "link_lights"
+      ],
+      "description": "粉蓝轨道灯、白色灯珠，与承力结构分层。"
+    },
+    {
+      "id": "link_gondolas",
+      "name": "完整吊舱 × 8",
+      "nodeNames": [
+        "link_gondolas"
+      ],
+      "description": "独立子层级；匹配选定图的 8 个吊舱，每个包含地板、座位、8 根柱、围栏和完整顶棚。"
+    },
+    {
+      "id": "link_devices",
+      "name": "电脑与手机",
+      "nodeNames": [
+        "link_devices"
+      ],
+      "description": "电脑笑脸及手机心形图形；单独可替换部件。"
+    },
+    {
+      "id": "link_ornament",
+      "name": "底座心形装饰",
+      "nodeNames": [
+        "link_ornament"
+      ],
+      "description": "小型心形浅浮雕；丘比特未在本轮假造，预留独立雕塑阶段。"
+    }
+  ],
+  "stats": {
+    "meshes": 49,
+    "triangles": 185868,
+    "materials": 11,
+    "bytes": 4505872
+  },
+  "thumbnailUrl": "/assets/link/v001/thumbnail.png"
+}

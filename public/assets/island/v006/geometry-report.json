@@ -1,0 +1,52 @@
+{
+  "asset": "island",
+  "checks": "Object meshes after modifier application; outward normals recalculated; finite coordinates, face area and edge manifold checks. Separate intersecting solids are deliberate assembly pieces, not boolean-unioned.",
+  "objects": [
+    {
+      "mesh": "island_math__Cobalt_serif_enamel",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_base__Smooth_plaster_porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_paving__Mucha_glazed_ceramic",
+      "degenerateFaces": 0,
+      "boundaryEdges": 1178,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    },
+    {
+      "mesh": "island_border__Smooth_plaster_porcelain",
+      "degenerateFaces": 0,
+      "boundaryEdges": 0,
+      "nonManifoldInteriorEdges": 0,
+      "nonFiniteCoordinates": 0
+    }
+  ],
+  "limitations": [
+    "No global self-intersection solver or full animation collision sweep was performed.",
+    "Zero boundary edges does not prove an assembled part has no collision.",
+    "Island decals are intentionally single sided; font caps may have open triangulated boundaries depending on font conversion.",
+    "Lighting, metal reflection and transparent glass must also be checked in the Three.js viewer."
+  ],
+  "construction": {
+    "analyticRoundedTrapezoid": true,
+    "pixelDrivenGeometry": false,
+    "rimInwardDepth": 0.32,
+    "flatPlaneStartsAtRadius": 4.87,
+    "rearFace": "near-vertical with 8mm upper/lower fillets",
+    "recessDepth": 0.038,
+    "horizontalRecessFillet": 0.018,
+    "verticalRecessFillet": 0.05,
+    "artworkWidthScale": 0.96,
+    "artworkHeightScale": 0.92
+  }
+}

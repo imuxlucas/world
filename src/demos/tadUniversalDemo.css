@@ -1,0 +1,80 @@
+@layer demo-reset, biz-mx, biz-ms;
+
+@font-face { font-family: ODNumber; src: url('/fonts/ODNumber-Regular.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
+
+@layer demo-reset {
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'PingFang SC', 'PingFang TC', -apple-system, sans-serif; }
+  button { font-family: inherit; }
+}
+
+html, body, #root { width: 100%; height: 100%; }
+
+.tad-demo {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  container-type: size;
+  background: #f5f6f8;
+  color: var(--mx-color-neutral-1000);
+}
+
+.tad-demo__controls {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 412px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  transform: translate(-50%, -50%) scale(min(1, calc(100cqw / 460px), calc(100cqh / 280px)));
+}
+
+.tad-demo__tabs { width: 100%; }
+.tad-demo__slider { width: 412px; }
+
+/* KR1 composer shell, trimmed to its operation bar. No prompt/editing area. */
+.kr2-composer {
+  width: 412px;
+  padding: 16px;
+  margin: 0;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: inset 0 0 0 .5px rgb(0 0 0 / 23%), 0 0 32px rgb(0 0 0 / 6%);
+  font: 400 14px/22px 'PingFang SC', sans-serif;
+  color: #000;
+}
+.kr2-composer__toolbar { display: flex; align-items: center; justify-content: space-between; }
+.kr2-composer__tabs { width: 100%; margin-bottom: 12px; }
+.kr2-composer__left { display: flex; align-items: center; gap: 4px; }
+.kr2-composer__right { display: flex; align-items: center; gap: 8px; flex: none; }
+.kr2-composer__add,
+.kr2-composer__send { width: 36px; height: 36px; display: grid; place-items: center; padding: 0; margin: 0; border: 0; cursor: pointer; flex: none; }
+.kr2-composer__add { border-radius: 8px; background: transparent; }
+.kr2-composer__add:hover { background: rgb(0 0 0 / 5%); }
+.kr2-composer__send { border-radius: 18px; background: #000; }
+.kr2-composer__send:hover { background: rgb(0 0 0 / 76%); }
+.kr2-composer__add:focus-visible,
+.kr2-composer__send:focus-visible { outline: 2px solid #8d8d8d; outline-offset: 3px; }
+.kr2-composer__add > svg,
+.kr2-composer__send > svg,
+.kr2-composer__credits > svg { display: block; width: 16px; height: 16px; flex: none; }
+.kr2-composer__credits { display: flex; align-items: center; gap: 2px; font-weight: 400; }
+.kr2-composer__credits-number { font-family: ODNumber, 'PingFang SC', sans-serif; font-size: 14px; line-height: 22px; }
+.kr2-composer__status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.tad-demo__marks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: var(--mx-font-size-sm);
+  line-height: var(--mx-line-height-sm);
+  color: var(--mx-color-neutral-tp-650);
+  font-variant-numeric: tabular-nums;
+}
+.tad-demo__marks > span { display: inline-flex; flex: 0 0 8px; min-width: 0; justify-content: center; }
+.tad-demo--thumbnail { pointer-events: none; }
+.tad-demo--thumbnail .tad-demo__controls {
+  transform: translate(-50%, -50%) scale(min(calc(100cqw / 640px), calc(100cqh / 360px)));
+}
