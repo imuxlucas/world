@@ -20,6 +20,8 @@ The public copy of the Finder Markdown example has login details and the interna
 
 ## External resources and credits
 
+The three pinned tad-universal npm distributions are in `vendor/` because the upstream tarballs return 404 from GitHub-hosted runners. Their original package metadata declares MIT; the archives are unmodified and verified against the original lockfile integrity. All other dependencies are installed from their locked registry URLs.
+
 The AI SEE and tad-universal documentation destinations may require corporate network access; the site cannot grant access to those external systems. Embedded local component demos and local screenshots are deployed with this website.
 
 The adapted carousel retains the original Carousel Lamp license in `public/assets/carousel/LICENSE.txt` and visible attribution linking to its author. Third-party components and media retain their own rights; publication does not grant additional reuse rights.

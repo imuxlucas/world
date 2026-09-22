@@ -11,8 +11,9 @@
     "preview": "vite preview --host 127.0.0.1 --port 4178 --strictPort"
   },
   "dependencies": {
-    "@tencent/tad-universal-biz-ms": "1.36.4",
-    "@tencent/tad-universal-biz-mx": "1.61.0",
+    "@tencent/tad-universal-base": "file:vendor/tad-universal-base-1.0.5.tgz",
+    "@tencent/tad-universal-biz-ms": "file:vendor/tad-universal-biz-ms-1.36.4.tgz",
+    "@tencent/tad-universal-biz-mx": "file:vendor/tad-universal-biz-mx-1.61.0.tgz",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "three": "0.170.0"
