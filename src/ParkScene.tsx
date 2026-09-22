@@ -126,7 +126,7 @@ export default function ParkScene(){
     const key=new THREE.DirectionalLight(0xffffff,1.6);key.position.set(-4,10,7);key.castShadow=true;key.shadow.mapSize.set(1024,1024);Object.assign(key.shadow.camera,{left:-8,right:8,top:8,bottom:-8,near:.1,far:35});key.shadow.normalBias=.035;key.shadow.bias=-.00015;scene.add(key);
     const fill=new THREE.DirectionalLight(0xc9ddff,.5);fill.position.set(6,5,-5);scene.add(fill);
     // The complete park floats in the page, with no ground plane to receive its shadow.
-    const resize=()=>{width=element.clientWidth;height=Math.max(element.clientHeight,1);const layout=getComputedStyle(element);detailWidth=parseFloat(layout.getPropertyValue('--okr-panel-width'))||1008;detailRight=parseFloat(layout.getPropertyValue('--okr-panel-right'))||22;aspect=width/height;half=destination().half;project();renderer.setSize(width,height);renderer.clear();needsRender=true;};
+    const resize=()=>{width=element.clientWidth;height=Math.max(element.clientHeight,1);const layout=getComputedStyle(element);detailWidth=parseFloat(layout.getPropertyValue('--okr-panel-width'))||1008;detailRight=parseFloat(layout.getPropertyValue('--okr-panel-right'))||48;aspect=width/height;half=destination().half;project();renderer.setSize(width,height);renderer.clear();needsRender=true;};
     const observer=new ResizeObserver(resize);observer.observe(element);resize();
     let route:Point[]=[],stop=0,rest=0,walkTime=0,uiTimer=0,shadowTimer=0;let dogShadow:THREE.Mesh|undefined;
     const clock=new THREE.Clock();

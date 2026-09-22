@@ -15,7 +15,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
-  padding: 29px 42px 0 33px;
+  padding: 32px 48px;
   pointer-events: none;
 }
 .park-identity { flex: none; }

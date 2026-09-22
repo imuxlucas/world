@@ -1,5 +1,5 @@
 /* A quiet presentation layer, separate from the asset studio. */
-.park-page { --okr-ink: #252627; --okr-muted: #85878a; --okr-panel-left: 32%; --okr-panel-width: 1008px; --okr-panel-right: 22px; font-family: 'PingFang SC', 'PingFang TC', -apple-system, sans-serif; }
+.park-page { --okr-ink: #252627; --okr-muted: #85878a; --okr-panel-left: 32%; --okr-panel-width: 1008px; --okr-panel-right: 48px; font-family: 'PingFang SC', 'PingFang TC', -apple-system, sans-serif; }
 .park-header { z-index: 4; }
 .park-brand, .park-motto { transition: opacity .5s; }
 .has-objective .park-motto { opacity: .7; font-size: 15px; }
@@ -181,6 +181,7 @@
 @media (min-width: 1101px) {
   .okr-panel { left: auto; right: var(--okr-panel-right); width: var(--okr-panel-width); }
 }
-@media (min-width: 1600px) {
-  .park-page { --okr-panel-right: 30px; }
+@media (min-width: 761px) {
+  .okr-panel { top: 32px; right: var(--okr-panel-right); }
+  .park-page .park-header { padding: 32px 48px; }
 }
