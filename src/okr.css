@@ -112,11 +112,11 @@
 @media (max-width: 760px) { .okr-editorial { padding: 28px 24px 36px; gap: 26px; } .okr-heading { padding-bottom: 24px; } .okr-heading h1 { font-size: 34px; } .okr-heading > p { font-size: 14px; } .okr-index-item { margin-bottom: 0; } .okr-story h2 { font-size: 23px; margin: 24px 0 28px; } .okr-evidence { grid-template-columns: 1fr; gap: 25px; } .okr-case-stage { max-height: none; aspect-ratio: 16 / 9; } }
 
 /* Quiet, continuous reading with no selected thumbnail treatment. */
-.okr-heading { border-bottom: 0; }
+.okr-heading { border-bottom: 0; padding-bottom: 0; }
 .okr-index-thumb { opacity: 1; box-shadow: none; }
-.okr-statement { margin: 27px 0 25px; }
+.okr-statement { margin: 32px 0 16px; }
 .okr-statement h2 { margin: 0; }
-.okr-evidence { display: flex; flex-direction: column; gap: 18px; }
+.okr-evidence { display: flex; flex-direction: column; row-gap: 8px; }
 .okr-evidence p { margin: 0; }
 
 /* Exact presentation type scale, shared across all viewport sizes. */
@@ -160,13 +160,11 @@
 
 /* Open editorial layout, without a surrounding card. */
 .okr-panel { background: transparent; border-radius: 0; }
-.okr-editorial { column-gap: 16px; }
+.okr-panel .okr-editorial { padding: 0; row-gap: 32px; column-gap: 8px; }
 .okr-index-item { margin-bottom: 8px; }
 .okr-index-thumb,
 .is-thumbnail,
 .okr-case-stage { border-radius: 0; }
-@media (min-width: 1600px) { .okr-editorial { column-gap: 20px; } }
-@media (max-width: 1100px) and (min-width: 761px) { .okr-editorial { column-gap: 14px; } }
 @media (max-width: 760px) {
   .okr-panel { border-radius: 0; }
   .okr-index { gap: 8px; margin-bottom: -14px; }

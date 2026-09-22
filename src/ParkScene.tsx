@@ -212,7 +212,7 @@ export default function ParkScene(){
       {objective ? <button className="park-model-back" onClick={()=>navigateOkr(null)}>Back</button> : <div className="park-identity"><a href="#park" className="park-brand" aria-label="Lucas‘ World，回到参考视角" onClick={()=>{if(!objective)reset.current();}}><img src={publicUrl("/branding/lucas-world-v004.svg")} width="956" height="245" alt="Lucas‘ World" draggable={false}/></a><p className="park-motto">½ Fun + ½ Math</p></div>}
     </header>
     <section className="park-stage" aria-label={objective?`${objective.title} 独立模型`:'完整乐园'}><div className="park-canvas" ref={host}/>
-      {loaded<5&&!error&&<div className="park-loading" role="status"><span/>正在布置小小乐园 · {loaded}/5</div>}
+      {loaded<5&&!error&&<div className="park-loading" role="status"><span/>加密努力中 · {loaded}/5</div>}
       {error&&<div className="park-loading" role="alert"><p>{error}</p><button onClick={()=>setRetry(n=>n+1)}>重新加载</button></div>}
     </section>
     <OkrDetails objective={objective??lastObjective} kr={objective?route.kr:0} open={!!objective}/>
