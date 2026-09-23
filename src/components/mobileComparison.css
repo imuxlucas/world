@@ -18,13 +18,6 @@
   width: min(26cqw, calc(78cqh * 390 / 844));
   flex: none;
 }
-.mobile-comparison__labels {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2cqh;
-  font-size: clamp(7px, 1.7cqw, 11px);
-  line-height: 1;
-}
 .mobile-comparison__screen {
   width: 100%;
   aspect-ratio: 390 / 844;
@@ -67,9 +60,5 @@
   box-shadow: 0 2px 8px #0003;
 }
 .mobile-comparison__handle svg { width: 70%; height: 70%; }
-.mobile-comparison__caption { display: flex; gap: 6px; align-items: center; justify-content: center; margin-top: 2cqh; font-size: clamp(7px, 1.7cqw, 11px); line-height: 1; white-space: nowrap; }
-.mobile-comparison__caption > span { color: #a2a6ad; font-variant-numeric: tabular-nums; }
 .mobile-comparison--thumbnail { height: auto; aspect-ratio: 16 / 9; pointer-events: none; }
-.mobile-comparison--thumbnail .mobile-comparison__labels,
-.mobile-comparison--thumbnail .mobile-comparison__caption { display: none; }
 .mobile-comparison--thumbnail .mobile-comparison__handle { width: 3cqw; }

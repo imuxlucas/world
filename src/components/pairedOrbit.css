@@ -1,13 +1,11 @@
 .paired-orbit { position:relative; width:100%; height:100%; overflow:hidden; isolation:isolate; outline:none; }
 .paired-orbit-art { display:block; width:100%; height:100%; overflow:hidden; }
-.paired-orbit-labels { position:absolute; top:20px; left:0; right:0; display:flex; z-index:2; pointer-events:none; color:#7e858e; font-size:11px; letter-spacing:1px; }
-.paired-orbit-labels span { width:50%; text-align:center; }
 .paired-orbit-entry { animation:paired-slide 1100ms cubic-bezier(.22,.75,.18,1) both; }
 .paired-orbit-arm { animation:paired-unfold 2400ms cubic-bezier(.22,.68,.18,1) var(--unfold-delay) both; }
 .paired-orbit-wheel { animation:paired-turn 72s linear 1600ms infinite; }
 .paired-orbit-wheel.wheel-after { animation-direction:reverse; }
 .paired-orbit:hover .paired-orbit-wheel,.paired-orbit:focus-within .paired-orbit-wheel,.paired-orbit.is-paused .paired-orbit-wheel { animation-play-state:paused; }
-.paired-orbit-card { cursor:pointer; outline:none; }
+.paired-orbit-card { cursor:pointer; outline:none; filter:drop-shadow(0 3px 6px rgb(0 0 0 / 12%)); }
 .paired-orbit:focus-visible { background:#eef0f4; }
 .paired-orbit.is-thumbnail { aspect-ratio:16/9; height:auto; background:#f5f6f8; pointer-events:none; }
 .paired-orbit.is-thumbnail .paired-orbit-entry,.paired-orbit.is-thumbnail .paired-orbit-wheel { animation:none; }
@@ -18,14 +16,13 @@
 .paired-detail[open] { display:flex; flex-direction:column; }
 .paired-detail-columns { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; flex:1; align-content:center; min-height:0; }
 .paired-detail-column { margin:0; min-width:0; }
-.paired-detail-image { position:relative; width:100%; max-height:calc(100dvh - 64px); border-radius:8px; background:#fff; transform-origin:top left; }
+.paired-detail-image { position:relative; width:100%; max-height:calc(100dvh - 64px); border-radius:8px; background:#fff; box-shadow:0 4px 16px rgb(0 0 0 / 10%); transform-origin:top left; }
 .paired-detail-image img { position:absolute; width:100%; height:100%; object-fit:contain; border-radius:inherit; }
 .paired-detail-original { opacity:0; }
 .paired-detail-original.is-loaded { opacity:1; }
 .paired-detail-loading { position:absolute; bottom:8px; left:8px; padding:5px 8px; border-radius:4px; color:#6c7480; background:#ffffffe6; font-size:10px; }
 @media(max-width:760px) {
   .okr-index.has-four-entries { grid-template-columns:repeat(4,minmax(0,1fr)); }
-  .paired-orbit-labels { top:10px; font-size:9px; }
   .paired-detail-columns { gap:10px; }
   .paired-detail-loading { font-size:8px; bottom:2px; left:2px; padding:3px; }
 }

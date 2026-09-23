@@ -17,7 +17,6 @@ function Comparison({ id, title, thumbnail }: { id: number; title: string; thumb
   }
 
   return <div className="mobile-comparison__card">
-    <div className="mobile-comparison__labels" aria-hidden="true"><span>Before</span><span>After</span></div>
     <div
       className="mobile-comparison__screen"
       style={{ '--comparison-position': `${position}%` } as CSSProperties}
@@ -61,7 +60,6 @@ function Comparison({ id, title, thumbnail }: { id: number; title: string; thumb
         <span className="mobile-comparison__handle"><svg viewBox="0 0 24 24" fill="none"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M12 6v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
       </div>
     </div>
-    <div className="mobile-comparison__caption"><span>0{id}</span>{title}</div>
   </div>;
 }
 

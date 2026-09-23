@@ -111,7 +111,6 @@ export default function PairedOrbit({ thumbnail = false }: { thumbnail?: boolean
       if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); setKeyboardCase(value => (value - 1 + (event.key === 'ArrowRight' ? 1 : 6)) % 7 + 1); }
       if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCase(keyboardCase); }
     }}>
-    {!thumbnail && <div className="paired-orbit-labels"><span>Before</span><span>After</span></div>}
     <svg className="paired-orbit-art" viewBox={`0 0 ${width} ${height}`} data-card-gap={ORBIT_CARD_GAP} aria-label={thumbnail ? undefined : '左右转盘，点击案例查看 Before / After 对比'}>
       <defs>
         <filter id={`${id}-goo`} x="-60%" y="-60%" width="220%" height="220%" colorInterpolationFilters="sRGB">
