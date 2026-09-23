@@ -23,7 +23,7 @@
 .workflow-folder[data-state='open'] .folder-front { transform:rotateX(-32deg); box-shadow:0 -6px 18px #9daebc12; }
 .workflow-folder[data-state='open'] .folder-card { transform:translate(calc((var(--card-order) - 1) * 80px - 2px),-48px) rotate(0) scale(1); }
 .workflow-folder-trigger .workflow-folder[data-state='open'] .folder-card { pointer-events:auto; }
-.workflow-folder-thumb { height:100%; aspect-ratio:1.55; display:grid; place-items:center; overflow:hidden; position:relative; background:#442321 url('/media/workflow-desktop/wallpaper-paper.png') center 48% / cover no-repeat; container-type:size; }
+.workflow-folder-thumb { width:100%; height:auto; aspect-ratio:16/9; display:grid; place-items:center; overflow:hidden; position:relative; background:#442321 url('/media/workflow-desktop/wallpaper-paper.png') center 48% / cover no-repeat; container-type:size; }
 .folder-thumbnail { position:absolute; transform:scale(min(.31, calc(100cqw / 560px), calc(100cqh / 340px))); transform-origin:center; }
 @keyframes folder-enter { from {opacity:0;transform:translateY(14px) scale(.96)} to {opacity:1;transform:translateY(0) scale(1)} }
 @keyframes folder-card-enter { from {opacity:0;transform:translateY(50px)} to {opacity:1;transform:translateY(0)} }

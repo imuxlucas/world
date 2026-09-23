@@ -33,7 +33,12 @@
   .park-header { padding: 22px 21px 0 14px; gap: 12px; }
   .park-motto { margin: 6px 0 0 9px; font-size: 15px; }
 }
-@media (max-height: 500px) and (min-width: 761px) {
-  .park-header { padding-top: 15px; }
-  .park-motto { font-size: 15px; }
+/* Keep all desktop sizes in the same 1440px coordinate system. */
+@media (min-width: 761px) {
+  .park-viewport { position:relative; width:100%; height:100dvh; overflow:hidden; }
+  .park-page {
+    position:absolute; inset:0 auto auto 0;
+    width:1440px; height:calc(100dvh / var(--park-scale, 1)); min-height:0;
+    transform:scale(var(--park-scale, 1)); transform-origin:top left;
+  }
 }

@@ -12,6 +12,7 @@ import {loadAssetMotion,type AssetMotion} from './assetMotion';
 import {PARK_LAYOUT,DECK_Y,DOG_SCALE,DOG_STOPS,findPath,walkable,distance,type Point} from './parkNavigation';
 import {OBJECTIVES,readOkrRoute,navigateOkr,type ObjectiveId} from './okrContent';
 import OkrDetails from './OkrDetails';
+import ParkViewport from './ParkViewport';
 import FinderResourcePreview, {type FinderResource} from './components/FinderResourcePreview';
 import './park.css';
 import './okr.css';
@@ -216,7 +217,7 @@ export default function ParkScene(){
     })();
     return()=>{disposed=true;controller.abort();cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener('keydown',onKey);canvas.removeEventListener('pointerdown',pointerDown);canvas.removeEventListener('pointermove',pointerMove);canvas.removeEventListener('pointerup',pointerUp);canvas.removeEventListener('pointercancel',pointerCancel);focusModel.current=()=>{};controls.dispose();mixer?.stopAllAction();motions.forEach(motion=>motion.dispose());release(scene);env.dispose();key.shadow.dispose();renderer.dispose();canvas.remove();reset.current=()=>{};};
   },[retry]);
-  return <main className={`park-page ${objective?'has-objective':''}`}>
+  return <ParkViewport><main className={`park-page ${objective?'has-objective':''}`}>
     <header className="park-header">
       {objective ? <button className="park-model-back" onClick={()=>navigateOkr(null)}>Back</button> : <div className="park-identity"><a href="#park" className="park-brand" aria-label="Lucas‘ World，回到参考视角" onClick={()=>{if(!objective)reset.current();}}><img src={publicUrl("/branding/lucas-world-v004.svg")} width="956" height="245" alt="Lucas‘ World" draggable={false}/></a><p className="park-motto">½ Fun + ½ Math</p></div>}
     </header>
@@ -226,5 +227,5 @@ export default function ParkScene(){
     </section>
     <OkrDetails objective={objective??lastObjective} kr={objective?route.kr:0} variant={route.variant} open={!!objective}/>
     {dogPhoto!==null&&<FinderResourcePreview files={DOG_PHOTOS} index={dogPhoto} onIndexChange={setDogPhoto} onClose={()=>setDogPhoto(null)}/>}
-  </main>;
+  </main></ParkViewport>;
 }

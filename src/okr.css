@@ -105,10 +105,7 @@
 .is-thumbnail .link-art i { border-width: 7px; }
 .is-thumbnail .craft-art i { border-radius: 4px; }
 @keyframes okr-reveal { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
-@media (min-width: 1600px) { .okr-panel { top: 30px; bottom: 30px; right: 30px; } .okr-editorial { padding: 40px 52px; column-gap: 46px; grid-template-columns: minmax(0,1fr) 150px; row-gap: 42px; } .okr-case-stage { aspect-ratio: 16 / 9; } .okr-evidence { grid-template-columns: 1.35fr 1fr; gap: 30px; } .okr-case h3 { font-size: 19px; } .okr-case p { font-size: 13px; } }
-@media (max-width: 1100px) and (min-width: 761px) { .park-page { --okr-panel-left: 29%; } .okr-panel { top: 16px; right: 16px; bottom: 16px; } .okr-editorial { padding: 25px; gap: 26px 22px; grid-template-columns: minmax(0,1fr) 95px; } .okr-heading h1 { font-size: 33px; } .okr-index-item strong { font-size: 10px; } .has-objective .park-header { padding-left: 20px; } }
 @media (max-width: 760px) { .park-page { --okr-panel-left: 0%; } .has-objective .park-header { padding: 18px 18px 0; } .has-objective .park-motto { font-size: 11px; margin-top: 3px; } .okr-panel { left: 12px; right: 12px; top: 27%; bottom: 12px; border-radius: 18px; } .okr-editorial { display: flex; flex-direction: column; gap: 24px; padding: 23px 21px 30px; } .okr-heading h1 { font-size: 34px; letter-spacing: -1.4px; } .okr-heading > p { font-size: 12px; margin-top: 14px; } .okr-index { position: static; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; width: 100%; } .okr-index-item { margin-bottom: 0; } .okr-index-thumb { margin-bottom: 8px; } .okr-index-meta { font-size: 7px; } .okr-index-item strong { font-size: 10px; } .okr-story { width: 100%; } .okr-story h2 { font-size: 14px; } .okr-case-stage { aspect-ratio: 16 / 9; } .cover-title { bottom: 22px; left: 20px; } .cover-title > span { font-size: 18px; } .cover-title strong { font-size: 8px; } .cover-placeholder { bottom: 21px; right: 15px; font-size: 6px; } .workflow-art span, .craft-art span { font-size: 44px; } .link-art i { border-width: 13px; } .is-thumbnail .workflow-art span, .is-thumbnail .craft-art span { font-size: 19px; } .is-thumbnail .link-art i { border-width: 5px; } }
-@media (max-height: 600px) and (min-width: 761px) { .okr-editorial { row-gap: 24px; padding-top: 20px; } }
 @media (max-height: 620px) and (max-width: 760px) { .okr-panel { top: 120px; } }
 @media (prefers-reduced-motion: reduce) { .okr-panel { transition-duration: .01ms; transition-delay: 0s; } }
 @media (max-width: 760px) { .okr-case-stage { max-height: none; } }
@@ -138,8 +135,6 @@
 .okr-evidence { border: 0; padding: 0; grid-template-columns: 1.1fr 1fr; gap: 32px; }
 .okr-evidence h3 { font-size: 12px; line-height: 1.5; letter-spacing: 1px; font-weight: 500; color: #464c55; margin-bottom: 13px; }
 .okr-evidence p { font-size: 14px; line-height: 1.95; font-weight: 400; color: #7a8089; }
-@media (min-width: 1600px) { .okr-editorial { padding: 48px 52px 54px; column-gap: 40px; grid-template-columns: minmax(0,1fr) 140px; } .okr-evidence { gap: 40px; } .okr-evidence p { font-size: 15px; } }
-@media (max-width: 1100px) and (min-width: 761px) { .okr-editorial { padding: 32px 28px; column-gap: 24px; grid-template-columns: minmax(0,1fr) 88px; } .okr-evidence { grid-template-columns: 1fr; gap: 25px; } }
 @media (max-width: 760px) { .okr-editorial { padding: 28px 24px 36px; gap: 26px; } .okr-heading { padding-bottom: 24px; } .okr-heading h1 { font-size: 34px; } .okr-heading > p { font-size: 14px; } .okr-index-item { margin-bottom: 0; } .okr-story h2 { font-size: 23px; margin: 24px 0 28px; } .okr-evidence { grid-template-columns: 1fr; gap: 25px; } .okr-case-stage { max-height: none; aspect-ratio: 16 / 9; } }
 
 /* Quiet, continuous reading with no selected thumbnail treatment. */
@@ -210,10 +205,7 @@
 .craft-docs-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .craft-docs-thumbnail::after { content: ''; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 10%); }
 .craft-desktop-thumbnail { position:relative; width:100%; height:auto; aspect-ratio:16/9; overflow:hidden; pointer-events:none; }
-@media (min-width: 1101px) {
-  .okr-panel { left: auto; right: var(--okr-panel-right); width: var(--okr-panel-width); }
-}
 @media (min-width: 761px) {
-  .okr-panel { top: 32px; right: var(--okr-panel-right); }
+  .okr-panel { top: 32px; left: auto; right: var(--okr-panel-right); width: var(--okr-panel-width); }
   .park-page .park-header { padding: 32px 48px; }
 }
