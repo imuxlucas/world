@@ -51,20 +51,21 @@ function SlotPopover({ input, icon }: { input: HTMLInputElement; icon: string })
         onOpenAutoFocus={event => { event.preventDefault(); textarea.current?.focus(); }}
         onInteractOutside={() => { outsideInteraction.current = true; }}
         onCloseAutoFocus={event => { event.preventDefault(); if (!outsideInteraction.current && input.isConnected) input.focus(); }}>
-        <div className="product-popover__header">
-          <RxPopover.Title>{label}</RxPopover.Title>
-          <MxButton variant="ghost" size="xs" type="button" onClick={() => setOpen(false)}>完成</MxButton>
+        <div className="product-popover__editor">
+          <RxTextarea ref={textarea} variant="filled" className="product-popover__textarea"
+            aria-label={label} placeholder={input.placeholder} value={value}
+            data-focus-ring={focusRing ? 'true' : 'false'}
+            onFocus={() => setFocusRing(modality === 'keyboard')}
+            onPointerDown={() => setFocusRing(false)}
+            onBlur={() => setFocusRing(false)}
+            onChange={event => updateValue(event.target.value)} />
+          <div className="product-popover__footer">
+            <button className="product-popover__previous" type="button" onClick={() => updateValue(previousProduct)}>
+              上次使用：<span>{previousProduct}</span>
+            </button>
+            <MxButton variant="primary" size="sm" type="button" onClick={() => setOpen(false)}>完成</MxButton>
+          </div>
         </div>
-        <RxTextarea ref={textarea} variant="filled" className="product-popover__textarea"
-          aria-label={label} placeholder={input.placeholder} value={value}
-          data-focus-ring={focusRing ? 'true' : 'false'}
-          onFocus={() => setFocusRing(modality === 'keyboard')}
-          onPointerDown={() => setFocusRing(false)}
-          onBlur={() => setFocusRing(false)}
-          onChange={event => updateValue(event.target.value)} />
-        <button className="product-popover__previous" type="button" onClick={() => updateValue(previousProduct)}>
-          上次使用：{previousProduct}
-        </button>
         <RxPopover.Arrow />
       </RxPopover.Content>
     </RxPopover.Portal>

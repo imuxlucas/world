@@ -25,21 +25,22 @@
 .slot-delete-tooltip { font-family: 'PingFang SC', sans-serif; }
 .slot-delete-tooltip[data-state="closed"] { animation: slot-tooltip-fade-out 180ms ease-out both; pointer-events: none; }
 @keyframes slot-tooltip-fade-out { from { opacity: 1; } to { opacity: 0; } }
-.product-popover__header {
+.product-popover__editor { position: relative; width: 100%; }
+.product-popover__footer {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
 }
-.product-popover .rx-popover__title {
-  margin: 0;
-  font: 500 14px/22px 'PingFang SC', sans-serif;
-  color: #000;
-}
-.product-popover__header .mx-button { font-family: 'PingFang SC', sans-serif; }
+.product-popover__footer [data-scope="button"] { flex: none; font-family: 'PingFang SC', sans-serif; }
 .product-popover .product-popover__textarea {
   height: 120px;
   min-height: 120px;
+  padding-bottom: 52px;
   resize: none;
   font: 400 14px/22px 'PingFang SC', sans-serif;
 }
@@ -48,12 +49,13 @@
   box-shadow: none;
   outline: none;
 }
-.product-popover__previous {
+.product-popover .product-popover__previous {
   display: block;
+  white-space: nowrap;
   text-align: left;
   padding: 0;
   background: transparent;
   font: 400 12px/20px 'PingFang SC', sans-serif;
   color: rgb(0 0 0 / 61%);
 }
-.product-popover__previous:hover { color: #000; }
+.product-popover__previous span { font-weight: 500; color: #576B95; }
