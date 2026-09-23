@@ -110,10 +110,12 @@ export const OBJECTIVES: Objective[] = [
   },
 ];
 
+export type KrVariant = 'default' | 'comparison';
 export function readOkrRoute() {
-  const match = location.hash.match(/^#park\/(o[123])(?:\/kr([123]))?$/);
-  return { objective: OBJECTIVES.find(o => o.id === match?.[1]) ?? null, kr: Number(match?.[2] ?? 1) - 1 };
+  const match = location.hash.match(/^#park\/(o[123])(?:\/kr([123]))?(\/comparison)?$/);
+  const variant: KrVariant = match?.[1] === 'o2' && match?.[2] === '1' && match?.[3] ? 'comparison' : 'default';
+  return { objective: OBJECTIVES.find(o => o.id === match?.[1]) ?? null, kr: Number(match?.[2] ?? 1) - 1, variant };
 }
-export function navigateOkr(id: ObjectiveId | null, kr = 0) {
-  location.hash = id ? `park/${id}/kr${kr + 1}` : 'park';
+export function navigateOkr(id: ObjectiveId | null, kr = 0, variant: KrVariant = 'default') {
+  location.hash = id ? `park/${id}/kr${kr + 1}${id === 'o2' && kr === 0 && variant === 'comparison' ? '/comparison' : ''}` : 'park';
 }

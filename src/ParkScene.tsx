@@ -215,6 +215,6 @@ export default function ParkScene(){
       {loaded<5&&!error&&<div className="park-loading" role="status"><span/>加密努力中 · {loaded}/5</div>}
       {error&&<div className="park-loading" role="alert"><p>{error}</p><button onClick={()=>setRetry(n=>n+1)}>重新加载</button></div>}
     </section>
-    <OkrDetails objective={objective??lastObjective} kr={objective?route.kr:0} open={!!objective}/>
+    <OkrDetails objective={objective??lastObjective} kr={objective?route.kr:0} variant={route.variant} open={!!objective}/>
   </main>;
 }

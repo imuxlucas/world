@@ -43,10 +43,10 @@
 /* Reverse stagger: the last character starts first. Text keeps its full width. */
 .okr-copy-accessible { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .okr-copy-char { opacity: 1; }
-.okr-story[data-transition='out'] .okr-copy-char { animation: kr-char-out 140ms ease both; animation-delay: calc(var(--char-progress) * 160ms); }
-.okr-story[data-transition='in'] .okr-copy-char { animation: kr-char-in 220ms ease both; animation-delay: calc(var(--char-progress) * 320ms); }
+.okr-story[data-text-transition='out'] .okr-copy-char { animation: kr-char-out 140ms ease both; animation-delay: calc(var(--char-progress) * 160ms); }
+.okr-story[data-text-transition='in'] .okr-copy-char { animation: kr-char-in 220ms ease both; animation-delay: calc(var(--char-progress) * 320ms); }
 .okr-story .okr-greeting { transition: opacity 180ms ease; }
-.okr-story[data-transition='out'] .okr-greeting { opacity: 0; }
+.okr-story[data-text-transition='out'] .okr-greeting { opacity: 0; }
 @keyframes kr-char-out { to { opacity: 0; } }
 @keyframes kr-char-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {

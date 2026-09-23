@@ -10,6 +10,8 @@ import { navigateOkr, type Objective, type KeyResult } from './okrContent';
 import { OKR_EDITORIAL } from './okrEditorial';
 import { useKrTransition } from './useKrTransition';
 import KrAnimatedText from './components/KrAnimatedText';
+import PairedOrbit from './components/PairedOrbit';
+import type { KrVariant } from './okrContent';
 
 
 function Cover({ objective, index, thumbnail = false }: { objective: Objective; index: number; thumbnail?: boolean }) {
@@ -46,9 +48,10 @@ function DesktopEmbed({ src, title }: { src: string; title: string }) {
   </div>;
 }
 
-function CaseStage({ result, objective, index }: { result: KeyResult; objective: Objective; index: number }) {
+function CaseStage({ result, objective, index, variant }: { result: KeyResult; objective: Objective; index: number; variant: KrVariant }) {
   const [failed, setFailed] = useState(false);
   const media = result.media;
+  if (objective.id === 'o2' && index === 0 && variant === 'comparison') return <PairedOrbit />;
   if (failed) return <div className="case-unavailable">素材暂时无法显示<button onClick={() => setFailed(false)}>重新载入</button></div>;
   if (media.type === 'image') return <img className="case-image" src={media.src} alt={media.alt} onError={() => setFailed(true)} />;
   if (media.type === 'embed' && objective.id === 'o3' && index === 1) return <DesktopEmbed src={media.src} title={media.title} />;
@@ -58,11 +61,16 @@ function CaseStage({ result, objective, index }: { result: KeyResult; objective:
   return <Cover objective={objective} index={index} />;
 }
 
-export default function OkrDetails({ objective, kr, open }: { objective: Objective; kr: number; open: boolean }) {
+export default function OkrDetails({ objective, kr, variant, open }: { objective: Objective; kr: number; variant: KrVariant; open: boolean }) {
   const panel = useRef<HTMLElement>(null);
   const scroll = useRef<HTMLDivElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
-  const displayed = useKrTransition(objective, kr, open);
+  const displayed = useKrTransition(objective, kr, open, variant);
+  const entries = objective.results.flatMap((item, index) => {
+    const entry = { item, index, variant: 'default' as KrVariant };
+    return objective.id === 'o2' && index === 0 ? [entry, { ...entry, variant: 'comparison' as KrVariant }] : [entry];
+  });
+  const activeEntry = entries.findIndex(entry => entry.index === kr && entry.variant === variant);
   const result = displayed.objective.results[displayed.kr];
   const copy = OKR_EDITORIAL[displayed.objective.id][displayed.kr];
   const contentKey = `${displayed.objective.id}-${displayed.kr}`;
@@ -76,7 +84,8 @@ export default function OkrDetails({ objective, kr, open }: { objective: Objecti
     if ((event.target as HTMLElement).closest('input, textarea, select, iframe, [contenteditable="true"]')) return;
     if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       event.preventDefault();
-      navigateOkr(objective.id, Math.max(0, Math.min(2, kr + (event.key === 'ArrowRight' ? 1 : -1))));
+      const next = entries[Math.max(0, Math.min(entries.length - 1, activeEntry + (event.key === 'ArrowRight' ? 1 : -1)))];
+      navigateOkr(objective.id, next.index, next.variant);
     }
   }}>
     <div className="okr-scroll" ref={scroll}>
@@ -85,16 +94,16 @@ export default function OkrDetails({ objective, kr, open }: { objective: Objecti
           <h1 id="objective-title" ref={heading} tabIndex={-1}>{objective.title}</h1>
           <p>{objective.statement}</p>
         </header>
-        <nav className="okr-index" aria-label={`${objective.title} 关键结果目录`}>
-          {objective.results.map((item, i) => <button key={i} className="okr-index-item" aria-current={kr === i ? 'step' : undefined} onClick={() => navigateOkr(objective.id, i)} aria-label={`KR${i + 1} · ${item.weight}% · ${item.title}`}>
-            <div className="okr-index-thumb">{objective.id==='o1'&&i===0?<WorkflowFolderThumbnail/>:objective.id==='o1'&&i===1?<WorkflowDesktopThumbnail/>:objective.id==='o1'&&i===2?<WorkflowFinder thumbnail/>:<Cover objective={objective} index={i} thumbnail />}</div>
+        <nav className={`okr-index ${entries.length === 4 ? 'has-four-entries' : ''}`} aria-label={`${objective.title} 关键结果目录`}>
+          {entries.map(({ item, index: i, variant: entryVariant }, entryIndex) => <button key={`${i}-${entryVariant}`} className="okr-index-item" aria-current={activeEntry === entryIndex ? 'step' : undefined} onClick={() => navigateOkr(objective.id, i, entryVariant)} aria-label={`KR${i + 1}${entryVariant === 'comparison' ? ' · Before / After 案例' : ''} · ${item.weight}% · ${item.title}`}>
+            <div className="okr-index-thumb">{entryVariant === 'comparison' ? <PairedOrbit thumbnail /> : objective.id==='o1'&&i===0?<WorkflowFolderThumbnail/>:objective.id==='o1'&&i===1?<WorkflowDesktopThumbnail/>:objective.id==='o1'&&i===2?<WorkflowFinder thumbnail/>:<Cover objective={objective} index={i} thumbnail />}</div>
           </button>)}
         </nav>
-        <article className="okr-story" data-transition={displayed.phase} aria-busy={displayed.phase !== 'idle'} aria-label={`KR${displayed.kr + 1} 详情`}>
+        <article className="okr-story" data-transition={displayed.phase} data-text-transition={displayed.textPhase} aria-busy={displayed.phase !== 'idle'} aria-label={`KR${displayed.kr + 1} 详情`}>
           <figure className="okr-case" aria-label="案例展示区">
             <div className="okr-case-stage" data-objective={objective.id}>
               <div className="okr-case-content" ref={node => { node?.toggleAttribute('inert', displayed.phase !== 'idle'); }}>
-                <CaseStage key={contentKey} result={result} objective={displayed.objective} index={displayed.kr} />
+                <CaseStage key={`${contentKey}-${displayed.variant}`} result={result} objective={displayed.objective} index={displayed.kr} variant={displayed.variant} />
               </div>
             </div>
           </figure>
