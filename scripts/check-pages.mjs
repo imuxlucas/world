@@ -34,6 +34,7 @@ for (let id = 1; id <= 7; id++) for (const state of ['before', 'after']) {
   asset(`/media/kr1-comparison/${id}${state}-preview.jpg`);
 }
 for (const cover of ['ai-see', 'aha-moment', 'grok-bot']) asset(`/media/workflow-folder/${cover}.png`);
+for (const file of ['6.mp4', '9.mp4', 'wda-poster.png', 'iconic-heart-poster.png']) asset(`/media/workflow-finder/v2/${file}`);
 const publicGuide = readFileSync(join(root, 'media/workflow-finder/resources/1.md'), 'utf8');
 assert(!/^-\s*(?:密码|password|邮箱)\s*[:：]/im.test(publicGuide), 'Public guide contains login information');
 assert(!/https?:\/\/\d{1,3}(?:\.\d{1,3}){3}(?::\d+)?\/admin/.test(publicGuide), 'Public guide contains an internal admin URL');
