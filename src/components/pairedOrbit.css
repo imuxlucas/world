@@ -5,7 +5,7 @@
 .paired-orbit-wheel { animation:paired-turn 72s linear 1600ms infinite; }
 .paired-orbit-wheel.wheel-after { animation-direction:reverse; }
 .paired-orbit:hover .paired-orbit-wheel,.paired-orbit:focus-within .paired-orbit-wheel,.paired-orbit.is-paused .paired-orbit-wheel { animation-play-state:paused; }
-.paired-orbit-card { cursor:pointer; outline:none; filter:drop-shadow(0 3px 6px rgb(0 0 0 / 12%)); }
+.paired-orbit-card { cursor:pointer; outline:none; }
 .paired-orbit:focus-visible { background:#eef0f4; }
 .paired-orbit.is-thumbnail { aspect-ratio:16/9; height:auto; background:#f5f6f8; pointer-events:none; }
 .paired-orbit.is-thumbnail .paired-orbit-entry,.paired-orbit.is-thumbnail .paired-orbit-wheel { animation:none; }
