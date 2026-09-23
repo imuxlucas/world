@@ -12,8 +12,14 @@ import {loadAssetMotion,type AssetMotion} from './assetMotion';
 import {PARK_LAYOUT,DECK_Y,DOG_SCALE,DOG_STOPS,findPath,walkable,distance,type Point} from './parkNavigation';
 import {OBJECTIVES,readOkrRoute,navigateOkr,type ObjectiveId} from './okrContent';
 import OkrDetails from './OkrDetails';
+import FinderResourcePreview, {type FinderResource} from './components/FinderResourcePreview';
 import './park.css';
 import './okr.css';
+
+const DOG_PHOTOS:FinderResource[]=Array.from({length:8},(_,index)=>({
+  id:index+1,label:`小狗相册 · ${index+1} / 8`,file:`${String(index+1).padStart(2,'0')}.jpg`,
+  src:publicUrl(`/media/dog-gallery/${String(index+1).padStart(2,'0')}.jpg`),
+}));
 
 function release(root:THREE.Object3D){
   const geometries=new Set<THREE.BufferGeometry>(),materials=new Set<THREE.Material>(),textures=new Set<THREE.Texture>();
@@ -24,6 +30,7 @@ export default function ParkScene(){
   const host=useRef<HTMLDivElement>(null),reset=useRef(()=>{});
   const focusModel=useRef<(id:string|null)=>void>(()=>{});
   const [route,setRoute]=useState(readOkrRoute);
+  const [dogPhoto,setDogPhoto]=useState<number|null>(null);
   const objective=route.objective;
   const selectedRef=useRef(objective?.model??null);selectedRef.current=objective?.model??null;
   const [lastObjective,setLastObjective]=useState(objective??OBJECTIVES[0]);
@@ -40,7 +47,7 @@ export default function ParkScene(){
     else host.current?.querySelector<HTMLCanvasElement>('canvas')?.focus({preventScroll:true});
   },[objective]);
   const [paused,setPaused]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
-  const pausedRef=useRef(paused);pausedRef.current=paused;
+  const pausedRef=useRef(paused);pausedRef.current=paused||dogPhoto!==null;
   const [loaded,setLoaded]=useState(0),[error,setError]=useState(''),[retry,setRetry]=useState(0);
   useEffect(()=>{
     const preference=matchMedia('(prefers-reduced-motion: reduce)');
@@ -68,13 +75,14 @@ export default function ParkScene(){
     renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setClearColor(0xffffff,1);
     renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;
     renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.shadowMap.autoUpdate=false;
-    const canvas=renderer.domElement;canvas.dataset.park='true';canvas.dataset.loaded='false';canvas.setAttribute('aria-label','点击旋转木马、摩天轮或金属楼查看 OKR。数字键 1、2、3 选择目标，空格暂停，方向键环视，加减键缩放。');canvas.setAttribute('role','img');canvas.setAttribute('aria-keyshortcuts','1 2 3 Space ArrowLeft ArrowRight ArrowUp ArrowDown + -');canvas.tabIndex=0;element.appendChild(canvas);
+    const canvas=renderer.domElement;canvas.dataset.park='true';canvas.dataset.loaded='false';canvas.setAttribute('aria-label','点击旋转木马、摩天轮或金属楼查看 OKR，点击小狗查看相册。数字键 1、2、3 选择目标，4 打开小狗相册，空格暂停，方向键环视，加减键缩放。');canvas.setAttribute('role','img');canvas.setAttribute('aria-keyshortcuts','1 2 3 4 Space ArrowLeft ArrowRight ArrowUp ArrowDown + -');canvas.tabIndex=0;element.appendChild(canvas);
     const scene=new THREE.Scene();scene.background=new THREE.Color(0xffffff);
     const camera=new THREE.OrthographicCamera(-6,6,5.4,-5.4,.1,100);
     const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.08;controls.minZoom=.65;controls.maxZoom=3;controls.maxPolarAngle=Math.PI*.47;controls.minPolarAngle=.2;controls.enablePan=false;
     const onKey=(event:KeyboardEvent)=>{
       if(event.code==='Space'){event.preventDefault();setPaused(p=>!p);}
       else if(event.key==='1'||event.key==='2'||event.key==='3'){event.preventDefault();navigateOkr(`o${event.key}` as ObjectiveId);}
+      else if(event.key==='4'&&!selectedRef.current){event.preventDefault();setDogPhoto(0);}
       else if(event.key==='+'||event.key==='='||event.key==='-'){event.preventDefault();if(selectedRef.current)return;camera.zoom=THREE.MathUtils.clamp(camera.zoom*(event.key==='-'?.9:1.1),controls.minZoom,controls.maxZoom);camera.updateProjectionMatrix();needsRender=true;}
       else if(event.key.startsWith('Arrow')){event.preventDefault();const orbit=new THREE.Spherical().setFromVector3(camera.position.clone().sub(controls.target));if(event.key==='ArrowLeft')orbit.theta-=.1;if(event.key==='ArrowRight')orbit.theta+=.1;if(event.key==='ArrowUp')orbit.phi-=.1;if(event.key==='ArrowDown')orbit.phi+=.1;orbit.phi=THREE.MathUtils.clamp(orbit.phi,controls.minPolarAngle,controls.maxPolarAngle);camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(orbit));controls.update();needsRender=true;}
     };canvas.addEventListener('keydown',onKey);
@@ -105,20 +113,21 @@ export default function ParkScene(){
       canvas.dataset.focused=focused??'park';
     };
     const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();
-    function pick(event:PointerEvent){
+    function pick(event:PointerEvent):ObjectiveId|'dog'|null{
       if(!ready||focused||needsFit)return null;
       const rect=canvas.getBoundingClientRect();pointer.set((event.clientX-rect.left)/rect.width*2-1,-(event.clientY-rect.top)/rect.height*2+1);
       raycaster.setFromCamera(pointer,camera);
-      const candidates=OBJECTIVES.map(o=>objects.get(o.model)).filter((o):o is THREE.Group=>!!o);
+      const candidates=[...OBJECTIVES.map(o=>objects.get(o.model)),objects.get('dog')].filter((o):o is THREE.Group=>!!o);
       const hit=raycaster.intersectObjects(candidates,true)[0];if(!hit)return null;
       let object:THREE.Object3D|null=hit.object;
       while(object&&!object.name.startsWith('park-'))object=object.parent;
-      return OBJECTIVES.find(o=>`park-${o.model}`===object?.name)??null;
+      if(object?.name==='park-dog')return 'dog';
+      return OBJECTIVES.find(o=>`park-${o.model}`===object?.name)?.id??null;
     }
-    let pressed:{x:number;y:number;id:ObjectiveId|null}|null=null;
-    const pointerDown=(event:PointerEvent)=>{if(event.button===0)pressed={x:event.clientX,y:event.clientY,id:pick(event)?.id??null};};
+    let pressed:{x:number;y:number;id:ObjectiveId|'dog'|null}|null=null;
+    const pointerDown=(event:PointerEvent)=>{if(event.button===0)pressed={x:event.clientX,y:event.clientY,id:pick(event)};};
     const pointerMove=(event:PointerEvent)=>{if(!event.buttons&&!focused)canvas.style.cursor=pick(event)?'pointer':'grab';};
-    const pointerUp=(event:PointerEvent)=>{const down=pressed;pressed=null;if(down?.id&&Math.hypot(event.clientX-down.x,event.clientY-down.y)<6&&pick(event)?.id===down.id)navigateOkr(down.id);};
+    const pointerUp=(event:PointerEvent)=>{const down=pressed;pressed=null;if(down?.id&&Math.hypot(event.clientX-down.x,event.clientY-down.y)<6&&pick(event)===down.id){if(down.id==='dog')setDogPhoto(0);else navigateOkr(down.id);}};
     const pointerCancel=()=>{pressed=null;};
     canvas.addEventListener('pointerdown',pointerDown);canvas.addEventListener('pointermove',pointerMove);canvas.addEventListener('pointerup',pointerUp);canvas.addEventListener('pointercancel',pointerCancel);
     const pmrem=new THREE.PMREMGenerator(renderer),room=new RoomEnvironment(),env=pmrem.fromScene(room,.04);scene.environment=env.texture;scene.environmentIntensity=.4;room.dispose();pmrem.dispose();
@@ -216,5 +225,6 @@ export default function ParkScene(){
       {error&&<div className="park-loading" role="alert"><p>{error}</p><button onClick={()=>setRetry(n=>n+1)}>重新加载</button></div>}
     </section>
     <OkrDetails objective={objective??lastObjective} kr={objective?route.kr:0} variant={route.variant} open={!!objective}/>
+    {dogPhoto!==null&&<FinderResourcePreview files={DOG_PHOTOS} index={dogPhoto} onIndexChange={setDogPhoto} onClose={()=>setDogPhoto(null)}/>}
   </main>;
 }
