@@ -13,7 +13,7 @@ export type CaseMedia =
   | { type: 'cover' }
   | { type: 'image'; src: string; alt: string }
   | { type: 'embed'; src: string; title: string }
-  | { type: 'component'; render: () => ReactNode };
+  | { type: 'component'; render: (active: boolean) => ReactNode };
 export type KeyResult = {
   title: string; shortTitle: string; weight: number; action: string; acceptance: string;
   caseTitle: string; caption: string; tags: string[]; media: CaseMedia;
@@ -90,7 +90,7 @@ export const OBJECTIVES: Objective[] = [
         action: '在业务需求与体验专项中，主动提出值得解决的问题，以用户依据明确问题，通过方案比较说明取舍，并用 Build 验证关键判断。将代表性实践整理为完整案例，呈现个人在问题定义、交互设计、技术实现与品质打磨中的贡献。',
         acceptance: 'Dots Craft 案例库，包含“问题—依据—取舍—实现—结果”、可运行 Demo 及落地效果，清晰呈现设计判断及验证后的收获。',
         caseTitle: '好的作品，有清晰的判断。', caption: '沿着问题、依据、取舍、实现与结果，完整讲述一件 Craft 代表作。',
-        tags: ['Dots Craft', '设计判断', 'Build 验证'], media: { type: 'component', render: () => createElement(DotsDemo) },
+        tags: ['Dots Craft', '设计判断', 'Build 验证'], media: { type: 'component', render: active => createElement(DotsDemo, { active }) },
       },
       {
         title: '将业务中的 AI 交互沉淀为可复用组件，让设计成果持续产生价值', shortTitle: '组件 → 价值', weight: 40,

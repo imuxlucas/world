@@ -50,7 +50,7 @@ function DesktopEmbed({ src, title }: { src: string; title: string }) {
   </div>;
 }
 
-function CaseStage({ result, objective, index, variant }: { result: KeyResult; objective: Objective; index: number; variant: KrVariant }) {
+function CaseStage({ result, objective, index, variant, active }: { result: KeyResult; objective: Objective; index: number; variant: KrVariant; active: boolean }) {
   const [failed, setFailed] = useState(false);
   const media = result.media;
   if (objective.id === 'o2' && index === 0 && variant === 'comparison') return <PairedOrbit />;
@@ -60,7 +60,7 @@ function CaseStage({ result, objective, index, variant }: { result: KeyResult; o
   if (media.type === 'embed' && objective.id === 'o3' && index === 1) return <DesktopEmbed src={media.src} title={media.title} />;
   if (media.type === 'embed' && objective.id === 'o2' && index === 0) return <div className="prompt-orbit-stage"><PromptOrbit/><iframe className="case-embed" src={`${media.src}?orbit=1`} title={media.title} loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" referrerPolicy="no-referrer" /></div>;
   if (media.type === 'embed') return <iframe className="case-embed" src={media.src} title={media.title} loading="eager" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" referrerPolicy="no-referrer" allowFullScreen />;
-  if (media.type === 'component') return <div className="case-component">{media.render()}</div>;
+  if (media.type === 'component') return <div className="case-component">{media.render(active)}</div>;
   return <Cover objective={objective} index={index} />;
 }
 
@@ -107,7 +107,7 @@ export default function OkrDetails({ objective, kr, variant, open }: { objective
           <figure className="okr-case" aria-label="案例展示区">
             <div className="okr-case-stage" data-objective={objective.id}>
               <div className="okr-case-content" ref={node => { node?.toggleAttribute('inert', displayed.phase !== 'idle'); }}>
-                <CaseStage key={`${contentKey}-${displayed.variant}`} result={result} objective={displayed.objective} index={displayed.kr} variant={displayed.variant} />
+                <CaseStage key={`${contentKey}-${displayed.variant}`} result={result} objective={displayed.objective} index={displayed.kr} variant={displayed.variant} active={open} />
               </div>
             </div>
           </figure>
