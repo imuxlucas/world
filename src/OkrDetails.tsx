@@ -5,6 +5,7 @@ import WorkflowFinder from './components/WorkflowFinder';
 import PromptOrbit from './components/PromptOrbit';
 import MobileComparison from './components/MobileComparison';
 import { DotsThumbnail } from './components/DotsDemo';
+import { CraftDesktopThumbnail } from './components/CraftDesktop';
 import { useEffect, useRef, useState } from 'react';
 import { navigateOkr, type Objective, type KeyResult } from './okrContent';
 import { OKR_EDITORIAL } from './okrEditorial';
@@ -17,8 +18,8 @@ import type { KrVariant } from './okrContent';
 
 function Cover({ objective, index, thumbnail = false }: { objective: Objective; index: number; thumbnail?: boolean }) {
   if (objective.id === 'o3' && index === 0 && thumbnail) return <DotsThumbnail />;
-  if (objective.id === 'o3' && index === 2 && thumbnail) return <div className="craft-docs-thumbnail"><img src={publicUrl("/media/craft/dots/desktop-cover.png")} alt="个人作品双窗口桌面" /></div>;
-  if (objective.id === 'o3' && index === 1 && thumbnail) return <div className="craft-docs-thumbnail"><img src={publicUrl("/media/craft/rxslider-docs.png")} alt="RxSlider 滑块文档" /></div>;
+  if (objective.id === 'o3' && index === 2 && thumbnail) return <CraftDesktopThumbnail />;
+  if (objective.id === 'o3' && index === 1 && thumbnail) return <div className="craft-desktop-thumbnail"><div className="craft-docs-thumbnail"><img src={publicUrl("/media/craft/rxslider-docs.png")} alt="RxSlider 滑块文档" /></div></div>;
   if (objective.id === 'o2' && index === 2 && thumbnail) return <MobileComparison thumbnail />;
   if (objective.id === 'o2' && index === 1 && thumbnail) return <div className="tad-universal-thumbnail" aria-hidden="true"><iframe src={publicUrl("/demos/tad-universal/?thumbnail=1")} title="tad-universal 组件缩略图" tabIndex={-1} loading="lazy" ref={node => { node?.setAttribute('inert', ''); }} /></div>;
   if (objective.id === 'o2' && index === 0 && thumbnail) return <div className="prompt-composer-thumbnail" aria-hidden="true"><iframe src={publicUrl("/demos/lip-prompt/index.html?thumbnail=1&orbit=1")} title="词槽输入组件缩略图" tabIndex={-1}/></div>;

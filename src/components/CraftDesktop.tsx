@@ -6,11 +6,24 @@ const windows = [
   { id: 'immersive', title: '❤️ 沉浸感 · 实体交互' },
   { id: 'whitespace', title: '🩷 极致感 · 留白语言' },
 ];
+const INITIAL_POSITIONS = { immersive: { x: 4, y: 43 }, whitespace: { x: 26, y: 57 } };
+
+export function CraftDesktopThumbnail() {
+  return <div className="craft-desktop craft-desktop-thumbnail" aria-hidden="true">
+    {windows.map(item => {
+      const position = INITIAL_POSITIONS[item.id as keyof typeof INITIAL_POSITIONS];
+      return <div key={item.id} className={`craft-window craft-window-${item.id}`} style={{left:`${position.x}%`,top:`${position.y}%`}}>
+        <div className="craft-window-title">{item.title}</div>
+        <div className="craft-video-surface"><img src={publicUrl(`/media/craft/${item.id}.jpg`)} alt="" /></div>
+      </div>;
+    })}
+  </div>;
+}
 
 export default function CraftDesktop() {
   const [front, setFront] = useState('whitespace');
   const desktop = useRef<HTMLDivElement>(null);
-  const [positions, setPositions] = useState<Record<string, { x: number; y: number }>>({ immersive: { x: 4, y: 43 }, whitespace: { x: 26, y: 57 } });
+  const [positions, setPositions] = useState<Record<string, { x: number; y: number }>>(INITIAL_POSITIONS);
   const drag = useRef<{ id: string; pointer: number; x: number; y: number; startX: number; startY: number; width: number; height: number; maxX: number; halfHeight: number } | null>(null);
   const moved = useRef(false);
   const startDrag = (event: PointerEvent<HTMLButtonElement>, id: string) => {

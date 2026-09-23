@@ -1,4 +1,6 @@
-.craft-desktop { position: relative; width: 100%; height: 100%; overflow: hidden; isolation: isolate; container-type: inline-size; background: #d0cddd url('/media/craft/wallpaper.jpg') center / cover; }
+.craft-desktop { position: relative; width: 100%; height: 100%; overflow: hidden; isolation: isolate; container-type: inline-size; }
+.craft-desktop.craft-desktop-thumbnail { height:auto; }
+.craft-video-surface > img { display:block; width:100%; height:100%; object-fit:contain; }
 .craft-window { position: absolute; width: 70%; overflow: hidden; border-radius: .8cqw; box-shadow: 0 1cqw 3cqw #0003, 0 0 0 1px #0002; background: white; }
 .craft-window-immersive { left: 4%; top: 43%; transform: translateY(-50%); }
 .craft-window-whitespace { right: 4%; top: 57%; transform: translateY(-50%); }

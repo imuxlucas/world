@@ -27,15 +27,18 @@
 .case-component { overflow: auto; }
 
 /* The stage stays mounted; only its contents fade during KR navigation. */
-.okr-case-stage[data-objective='o1'] { background: #442321 url('/media/workflow-desktop/wallpaper-paper.png') center 48% / cover no-repeat; }
+.okr-case-stage[data-objective='o1'],
+.okr-case-stage[data-objective='o3'],
+.craft-desktop-thumbnail { background: #442321 url('/media/workflow-desktop/wallpaper-paper.png') center 48% / cover no-repeat; }
 .okr-case-stage[data-objective='o2'] { background: #f5f6f8; }
-.okr-case-stage[data-objective='o3'] { background: #fff; }
+.okr-case-stage[data-objective='o3'] { min-height:210px; }
 .okr-case-content { width: 100%; height: 100%; opacity: 1; transition: opacity 240ms ease; }
 .okr-story[data-transition='out'] .okr-case-content { opacity: 0; }
 .okr-case-content .workflow-folder-demo,
 .okr-case-content .workflow-desktop,
 .okr-case-content .workflow-finder-stage,
 .okr-case-content .prompt-orbit-stage,
+.okr-case-content .craft-desktop,
 .okr-case-content .mobile-comparison { background: transparent; }
 .okr-case-content .workflow-folder-trigger > .workflow-folder,
 .okr-case-content .workflow-folder-trigger .folder-card-sheet { animation: none; }
@@ -206,6 +209,10 @@
 .craft-docs-thumbnail { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
 .craft-docs-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .craft-docs-thumbnail::after { content: ''; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 10%); }
+.okr-case-stage[data-objective='o3'] .dots-demo,
+.okr-case-stage[data-objective='o3'] .case-desktop-embed { position:absolute; left:50%; top:50%; width:90%; height:auto; aspect-ratio:16/9; transform:translate(-50%,-50%); border-radius:8px; box-shadow:0 8px 28px #0003; }
+.craft-desktop-thumbnail { position:relative; width:100%; height:auto; aspect-ratio:16/9; overflow:hidden; pointer-events:none; }
+.craft-desktop-thumbnail > .craft-docs-thumbnail { position:absolute; left:5%; top:5%; width:90%; border-radius:2px; box-shadow:0 2px 6px #0003; }
 @media (min-width: 1101px) {
   .okr-panel { left: auto; right: var(--okr-panel-right); width: var(--okr-panel-width); }
 }

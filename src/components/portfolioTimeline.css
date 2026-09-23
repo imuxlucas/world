@@ -1,5 +1,3 @@
-.okr-case-stage:has(.portfolio-timeline) { min-height:210px; }
-.okr-case-stage[data-objective='o3']:has(.portfolio-timeline),
 .portfolio-timeline-thumbnail { background:#442321 url('/media/workflow-desktop/wallpaper-paper.png') center 48% / cover no-repeat; }
 .portfolio-timeline { position:relative; width:100%; height:100%; overflow:hidden; }
 .portfolio-timeline-viewport { position:absolute; left:0; right:0; bottom:80px; overflow:hidden; }
