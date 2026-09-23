@@ -6,7 +6,7 @@ type Page = 'home' | 'thinking' | 'interface' | 'video';
 const base = publicUrl('/media/craft/dots/');
 
 export function DotsThumbnail() {
-  return <div className="craft-desktop-thumbnail"><div className="craft-docs-thumbnail"><img src={`${base}home.png`} alt="Dots 五张卡片首页" /></div></div>;
+  return <div className="craft-docs-thumbnail"><img src={`${base}home.png`} alt="Dots 五张卡片首页" /></div>;
 }
 
 export default function DotsDemo() {
