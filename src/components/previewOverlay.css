@@ -1,0 +1,10 @@
+.preview-overlay { position:fixed; inset:0; box-sizing:border-box; margin:0; padding:32px 40px; width:100vw; height:100dvh; max-width:none; max-height:none; border:0; background:transparent; color:#252627; overflow:hidden; font-family:'PingFang SC',-apple-system,sans-serif; }
+.preview-overlay::backdrop { background:rgba(255,255,255,.8); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
+.preview-overlay .preview-control { position:absolute; z-index:10; pointer-events:auto; width:auto; height:auto; border:0; border-radius:999px; padding:10px 17px; background:#ededed; color:#929292; font-size:16px; line-height:1.3; font-weight:400; cursor:pointer; transition:background .2s,color .2s; }
+.preview-overlay .preview-control:hover { background:#e4e4e4; color:#676767; }
+.preview-overlay .preview-control:focus-visible { outline:2px solid #929292; outline-offset:4px; }
+.preview-overlay .preview-control:disabled { opacity:.35; cursor:default; }
+.preview-exit { top:32px; right:40px; }
+.preview-prev { bottom:32px; left:40px; }
+.preview-next { bottom:32px; right:40px; }
+@media(prefers-reduced-motion:reduce) { .preview-overlay .preview-control { transition:none; } }

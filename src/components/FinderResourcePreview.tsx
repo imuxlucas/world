@@ -1,6 +1,7 @@
 import { publicUrl } from '../publicUrl';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import PreviewControls from './PreviewControls';
 import './finderResourcePreview.css';
 
 export type FinderResource = { id:number; label:string; file:string };
@@ -46,7 +47,7 @@ export default function FinderResourcePreview({files,index,onIndexChange,onClose
     element?.showModal();
     return()=>{element?.close();previous?.focus({preventScroll:true});};
   },[]);
-  return createPortal(<dialog ref={dialog} className="finder-resource-preview" aria-label="资源全屏预览" onCancel={event=>{event.preventDefault();onClose();}}
+  return createPortal(<dialog ref={dialog} className="finder-resource-preview preview-overlay" aria-label="资源全屏预览" onCancel={event=>{event.preventDefault();onClose();}}
     onClick={event=>event.stopPropagation()} onKeyDown={event=>{
       event.stopPropagation();
       if(event.key==='Escape'){event.preventDefault();onClose();return;}
@@ -54,11 +55,9 @@ export default function FinderResourcePreview({files,index,onIndexChange,onClose
       if(event.key==='ArrowLeft'&&index>0){event.preventDefault();onIndexChange(index-1);}
       if(event.key==='ArrowRight'&&index<files.length-1){event.preventDefault();onIndexChange(index+1);}
     }}>
-    <header className="finder-preview-header"><span>{item.label}</span><button type="button" className="finder-preview-close" aria-label="关闭预览" autoFocus onClick={onClose}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
-    <button type="button" className="finder-preview-nav finder-preview-prev" aria-label="上一张" disabled={index===0} onClick={()=>onIndexChange(index-1)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="m14 5-7 7 7 7"/></svg></button>
+    <PreviewControls onClose={onClose} onPrevious={()=>onIndexChange(index-1)} onNext={()=>onIndexChange(index+1)} previousDisabled={index===0} nextDisabled={index===files.length-1}/>
     <div className="finder-preview-content" key={item.id}>
       {extension==='mp4'?<VideoPreview src={src}/>:extension==='md'?<MarkdownPreview src={src}/>:extension==='pdf'?<div className="finder-pdf" tabIndex={0} role="document" aria-label={item.label}>{Array.from({length:8},(_,page)=><img key={page} width={1273} height={1800} src={`${ROOT}pdf-pages/page-${page+1}.png`} alt={`第 ${page+1} 页，共 8 页`} loading={page===0?'eager':'lazy'}/>)}</div>:<img className="finder-preview-image" src={src} alt={item.label}/>}
     </div>
-    <button type="button" className="finder-preview-nav finder-preview-next" aria-label="下一张" disabled={index===files.length-1} onClick={()=>onIndexChange(index+1)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="m10 5 7 7-7 7"/></svg></button>
   </dialog>,document.body);
 }

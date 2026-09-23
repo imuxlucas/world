@@ -1,5 +1,6 @@
 import { publicUrl } from '../publicUrl';
-import { useEffect, useId, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { layoutOrbit, ORBIT_CARD_GAP } from './orbitLayout';
 import './promptOrbit.css';
 
 const CASES = Array.from({ length: 14 }, (_, index) => ({
@@ -25,12 +26,7 @@ export default function PromptOrbit() {
   const margin = thumbnail ? 8 : 48;
   const scale = Math.max(.1, Math.min(1, (width - margin) / 412, (height - margin) / 200));
   const cardWidth = 320 * scale;
-  const cardGap = 8 * scale;
-  const halfStep = Math.PI / CASES.length;
-  const maxCardHeight = Math.max(...CASES.map(item => cardWidth / item.ratio));
-  // Leave a gap even at adjacent cards' closest (inner) corners.
-  const radius = Math.max(width * .9, cardWidth / 2 +
-    (maxCardHeight * Math.cos(halfStep) + cardGap) / (2 * Math.sin(halfStep)));
+  const { radius, angles } = useMemo(() => layoutOrbit(cardWidth, CASES.map(item => cardWidth / item.ratio)), [cardWidth]);
   // Keep the composer at the circle's rightmost point as its center moves left.
   const cx = width / 2 - radius;
   const cy = height / 2;
@@ -42,7 +38,7 @@ export default function PromptOrbit() {
   const rotationDelay = entryHold + entryDuration * .4;
   const blur = Math.min(7, width / 90);
   return <div ref={host} className="prompt-orbit" aria-hidden="true" style={{ '--rotation-delay': `${rotationDelay}ms` } as CSSProperties}>
-    <svg className="prompt-orbit-art" viewBox={`0 0 ${width} ${height}`} data-case-count={CASES.length} data-circle-center={`${cx},${cy}`}>
+    <svg className="prompt-orbit-art" viewBox={`0 0 ${width} ${height}`} data-case-count={CASES.length} data-card-gap={ORBIT_CARD_GAP} data-circle-center={`${cx},${cy}`}>
       <defs>
         <filter id={`${id}-goo`} x="-100%" y="-100%" width="300%" height="300%" colorInterpolationFilters="sRGB">
           <feGaussianBlur in="SourceGraphic" stdDeviation={blur} result="blur" />
@@ -62,7 +58,7 @@ export default function PromptOrbit() {
               // Both streams launch at the composer, then unfold toward the left.
               // Their furthest cards lead, with the next pair following behind.
               const rank = index < half ? index : CASES.length - 1 - index;
-              const angle = (half - rank - .5) * 360 / CASES.length * (index < half ? -1 : 1);
+              const angle = angles[index] - (angles[half - 1] + angles[half]) / 2;
               const cardHeight = cardWidth / item.ratio;
               return <g className="prompt-orbit-arm" key={item.src} style={{
                 '--entry-angle': `${angle}deg`,

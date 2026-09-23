@@ -1,5 +1,4 @@
 .workflow-desktop { position:relative; width:100%; height:100%; overflow:hidden; isolation:isolate; container-type:inline-size; background:#442321 url('/media/workflow-desktop/wallpaper-paper.png') center 48% / cover no-repeat; font-family:'PingFang SC',sans-serif; }
-.workflow-desktop::before { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(#0003,transparent 22%,transparent 78%,#0002); }
 .workflow-desktop-status { position:absolute; top:2.8%; left:3.4%; right:3.4%; display:flex; align-items:center; justify-content:space-between; color:#fff; font-size:1.8cqw; font-weight:600; line-height:1; text-shadow:0 1px 4px #0004; pointer-events:none; }
 .workflow-desktop-status>div { display:flex; align-items:center; gap:.8cqw; }
 .workflow-desktop-status svg { height:1.5cqw; width:auto; }
