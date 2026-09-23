@@ -110,12 +110,15 @@ export const OBJECTIVES: Objective[] = [
   },
 ];
 
-export type KrVariant = 'default' | 'comparison';
+export type KrVariant = 'default' | 'comparison' | 'archive';
 export function readOkrRoute() {
-  const match = location.hash.match(/^#park\/(o[123])(?:\/kr([123]))?(\/comparison)?$/);
-  const variant: KrVariant = match?.[1] === 'o2' && match?.[2] === '1' && match?.[3] ? 'comparison' : 'default';
+  const match = location.hash.match(/^#park\/(o[123])(?:\/kr([123]))?(\/(?:comparison|archive))?$/);
+  const variant: KrVariant = match?.[1] === 'o2' && match?.[2] === '1' && match?.[3] === '/comparison' ? 'comparison'
+    : match?.[1] === 'o3' && match?.[2] === '3' && match?.[3] === '/archive' ? 'archive' : 'default';
   return { objective: OBJECTIVES.find(o => o.id === match?.[1]) ?? null, kr: Number(match?.[2] ?? 1) - 1, variant };
 }
 export function navigateOkr(id: ObjectiveId | null, kr = 0, variant: KrVariant = 'default') {
-  location.hash = id ? `park/${id}/kr${kr + 1}${id === 'o2' && kr === 0 && variant === 'comparison' ? '/comparison' : ''}` : 'park';
+  const suffix = id === 'o2' && kr === 0 && variant === 'comparison' ? '/comparison'
+    : id === 'o3' && kr === 2 && variant === 'archive' ? '/archive' : '';
+  location.hash = id ? `park/${id}/kr${kr + 1}${suffix}` : 'park';
 }

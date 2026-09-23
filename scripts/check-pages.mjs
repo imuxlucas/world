@@ -35,6 +35,12 @@ for (let id = 1; id <= 7; id++) for (const state of ['before', 'after']) {
 }
 for (const cover of ['ai-see', 'aha-moment', 'grok-bot']) asset(`/media/workflow-folder/${cover}.png`);
 for (const file of ['6.mp4', '9.mp4', 'wda-poster.png', 'iconic-heart-poster.png']) asset(`/media/workflow-finder/v2/${file}`);
+for (const name of ['vr-2018', 'untitled-2021', 'exploration-2024']) {
+  asset(`/media/portfolio-timeline/${name}.mp4`);
+  asset(`/media/portfolio-timeline/${name}.jpg`);
+}
+for (const extension of ['pdf', 'jpg']) asset(`/media/portfolio-timeline/portfolio-2020.${extension}`);
+for (let page = 1; page <= 29; page++) asset(`/media/portfolio-timeline/pages/page-${String(page).padStart(2, '0')}.jpg`);
 const publicGuide = readFileSync(join(root, 'media/workflow-finder/resources/1.md'), 'utf8');
 assert(!/^-\s*(?:密码|password|邮箱)\s*[:：]/im.test(publicGuide), 'Public guide contains login information');
 assert(!/https?:\/\/\d{1,3}(?:\.\d{1,3}){3}(?::\d+)?\/admin/.test(publicGuide), 'Public guide contains an internal admin URL');

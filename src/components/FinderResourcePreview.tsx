@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import PreviewControls from './PreviewControls';
 import './finderResourcePreview.css';
 
-export type FinderResource = { id:number; label:string; file:string; src?:string; poster?:string };
+export type FinderResource = { id:number; label:string; file:string; src?:string; poster?:string; pages?:{src:string;width:number;height:number}[] };
 const ROOT=publicUrl('/media/workflow-finder/resources/');
 
 function MarkdownPreview({src}:{src:string}) {
@@ -42,6 +42,7 @@ export default function FinderResourcePreview({files,index,onIndexChange,onClose
   const item=files[index];
   const src=item.src??ROOT+item.file;
   const extension=item.file.split('.').pop();
+  const pages=item.pages??Array.from({length:8},(_,page)=>({src:`${ROOT}pdf-pages/page-${page+1}.png`,width:1273,height:1800}));
   useEffect(()=>{
     const previous=document.activeElement as HTMLElement|null;
     const element=dialog.current;
@@ -58,7 +59,7 @@ export default function FinderResourcePreview({files,index,onIndexChange,onClose
     }}>
     <PreviewControls onClose={onClose} onPrevious={()=>onIndexChange(index-1)} onNext={()=>onIndexChange(index+1)} previousDisabled={index===0} nextDisabled={index===files.length-1}/>
     <div className="finder-preview-content" key={item.id}>
-      {extension==='mp4'?<VideoPreview src={src} poster={item.poster}/>:extension==='md'?<MarkdownPreview src={src}/>:extension==='pdf'?<div className="finder-pdf" tabIndex={0} role="document" aria-label={item.label}>{Array.from({length:8},(_,page)=><img key={page} width={1273} height={1800} src={`${ROOT}pdf-pages/page-${page+1}.png`} alt={`第 ${page+1} 页，共 8 页`} loading={page===0?'eager':'lazy'}/>)}</div>:<img className="finder-preview-image" src={src} alt={item.label}/>}
+      {extension==='mp4'?<VideoPreview src={src} poster={item.poster}/>:extension==='md'?<MarkdownPreview src={src}/>:extension==='pdf'?<div className={`finder-pdf${pages[0]?.width>pages[0]?.height?' is-landscape':''}`} tabIndex={0} role="document" aria-label={item.label}>{pages.map((page,index)=><img key={page.src} width={page.width} height={page.height} src={page.src} alt={`第 ${index+1} 页，共 ${pages.length} 页`} loading={index===0?'eager':'lazy'}/>)}</div>:<img className="finder-preview-image" src={src} alt={item.label}/>}
     </div>
   </dialog>,document.body);
 }

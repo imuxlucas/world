@@ -11,6 +11,7 @@ import { OKR_EDITORIAL } from './okrEditorial';
 import { useKrTransition } from './useKrTransition';
 import KrAnimatedText from './components/KrAnimatedText';
 import PairedOrbit from './components/PairedOrbit';
+import PortfolioTimeline from './components/PortfolioTimeline';
 import type { KrVariant } from './okrContent';
 
 
@@ -52,6 +53,7 @@ function CaseStage({ result, objective, index, variant }: { result: KeyResult; o
   const [failed, setFailed] = useState(false);
   const media = result.media;
   if (objective.id === 'o2' && index === 0 && variant === 'comparison') return <PairedOrbit />;
+  if (objective.id === 'o3' && index === 2 && variant === 'archive') return <PortfolioTimeline />;
   if (failed) return <div className="case-unavailable">素材暂时无法显示<button onClick={() => setFailed(false)}>重新载入</button></div>;
   if (media.type === 'image') return <img className="case-image" src={media.src} alt={media.alt} onError={() => setFailed(true)} />;
   if (media.type === 'embed' && objective.id === 'o3' && index === 1) return <DesktopEmbed src={media.src} title={media.title} />;
@@ -68,6 +70,7 @@ export default function OkrDetails({ objective, kr, variant, open }: { objective
   const displayed = useKrTransition(objective, kr, open, variant);
   const entries = objective.results.flatMap((item, index) => {
     const entry = { item, index, variant: 'default' as KrVariant };
+    if (objective.id === 'o3' && index === 2) return [entry, { ...entry, variant: 'archive' as KrVariant }];
     return objective.id === 'o2' && index === 0 ? [entry, { ...entry, variant: 'comparison' as KrVariant }] : [entry];
   });
   const activeEntry = entries.findIndex(entry => entry.index === kr && entry.variant === variant);
@@ -95,8 +98,8 @@ export default function OkrDetails({ objective, kr, variant, open }: { objective
           <p>{objective.statement}</p>
         </header>
         <nav className={`okr-index ${entries.length === 4 ? 'has-four-entries' : ''}`} aria-label={`${objective.title} 关键结果目录`}>
-          {entries.map(({ item, index: i, variant: entryVariant }, entryIndex) => <button key={`${i}-${entryVariant}`} className="okr-index-item" aria-current={activeEntry === entryIndex ? 'step' : undefined} onClick={() => navigateOkr(objective.id, i, entryVariant)} aria-label={`KR${i + 1}${entryVariant === 'comparison' ? ' · Before / After 案例' : ''} · ${item.weight}% · ${item.title}`}>
-            <div className="okr-index-thumb">{entryVariant === 'comparison' ? <PairedOrbit thumbnail /> : objective.id==='o1'&&i===0?<WorkflowFolderThumbnail/>:objective.id==='o1'&&i===1?<WorkflowDesktopThumbnail/>:objective.id==='o1'&&i===2?<WorkflowFinder thumbnail/>:<Cover objective={objective} index={i} thumbnail />}</div>
+          {entries.map(({ item, index: i, variant: entryVariant }, entryIndex) => <button key={`${i}-${entryVariant}`} className="okr-index-item" aria-current={activeEntry === entryIndex ? 'step' : undefined} onClick={() => navigateOkr(objective.id, i, entryVariant)} aria-label={`KR${i + 1}${entryVariant === 'comparison' ? ' · Before / After 案例' : entryVariant === 'archive' ? ' · 历年作品' : ''} · ${item.weight}% · ${item.title}`}>
+            <div className="okr-index-thumb">{entryVariant === 'comparison' ? <PairedOrbit thumbnail /> : entryVariant === 'archive' ? <PortfolioTimeline thumbnail /> : objective.id==='o1'&&i===0?<WorkflowFolderThumbnail/>:objective.id==='o1'&&i===1?<WorkflowDesktopThumbnail/>:objective.id==='o1'&&i===2?<WorkflowFinder thumbnail/>:<Cover objective={objective} index={i} thumbnail />}</div>
           </button>)}
         </nav>
         <article className="okr-story" data-transition={displayed.phase} data-text-transition={displayed.textPhase} aria-busy={displayed.phase !== 'idle'} aria-label={`KR${displayed.kr + 1} 详情`}>
