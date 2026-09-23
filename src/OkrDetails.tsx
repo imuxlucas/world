@@ -8,6 +8,8 @@ import { DotsThumbnail } from './components/DotsDemo';
 import { useEffect, useRef, useState } from 'react';
 import { navigateOkr, type Objective, type KeyResult } from './okrContent';
 import { OKR_EDITORIAL } from './okrEditorial';
+import { useKrTransition } from './useKrTransition';
+import KrAnimatedText from './components/KrAnimatedText';
 
 
 function Cover({ objective, index, thumbnail = false }: { objective: Objective; index: number; thumbnail?: boolean }) {
@@ -60,8 +62,10 @@ export default function OkrDetails({ objective, kr, open }: { objective: Objecti
   const panel = useRef<HTMLElement>(null);
   const scroll = useRef<HTMLDivElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
-  const result = objective.results[kr];
-  const copy = OKR_EDITORIAL[objective.id][kr];
+  const displayed = useKrTransition(objective, kr, open);
+  const result = displayed.objective.results[displayed.kr];
+  const copy = OKR_EDITORIAL[displayed.objective.id][displayed.kr];
+  const contentKey = `${displayed.objective.id}-${displayed.kr}`;
   useEffect(() => { panel.current?.toggleAttribute('inert', !open); }, [open]);
   useEffect(() => {
     if (open) heading.current?.focus({ preventScroll: true });
@@ -86,12 +90,16 @@ export default function OkrDetails({ objective, kr, open }: { objective: Objecti
             <div className="okr-index-thumb">{objective.id==='o1'&&i===0?<WorkflowFolderThumbnail/>:objective.id==='o1'&&i===1?<WorkflowDesktopThumbnail/>:objective.id==='o1'&&i===2?<WorkflowFinder thumbnail/>:<Cover objective={objective} index={i} thumbnail />}</div>
           </button>)}
         </nav>
-        <article className="okr-story" key={`${objective.id}-${kr}`} aria-label={`KR${kr + 1} 详情`}>
+        <article className="okr-story" data-transition={displayed.phase} aria-busy={displayed.phase !== 'idle'} aria-label={`KR${displayed.kr + 1} 详情`}>
           <figure className="okr-case" aria-label="案例展示区">
-            <div className="okr-case-stage"><CaseStage result={result} objective={objective} index={kr} /></div>
+            <div className="okr-case-stage" data-objective={objective.id}>
+              <div className="okr-case-content" ref={node => { node?.toggleAttribute('inert', displayed.phase !== 'idle'); }}>
+                <CaseStage key={contentKey} result={result} objective={displayed.objective} index={displayed.kr} />
+              </div>
+            </div>
           </figure>
-          <div className="okr-statement"><h2>{copy.title.replace(/[。.]$/, '')}<sup className="okr-greeting">Hi December～</sup></h2></div>
-          <div className="okr-evidence"><p>{copy.action}</p><p>{copy.acceptance}</p></div>
+          <div className="okr-statement" key={`title-${contentKey}`}><h2><KrAnimatedText text={copy.title.replace(/[。.]$/, '')} /><sup className="okr-greeting">Hi December～</sup></h2></div>
+          <div className="okr-evidence" key={`body-${contentKey}`}><p><KrAnimatedText text={copy.action} /></p><p><KrAnimatedText text={copy.acceptance} /></p></div>
         </article>
       </div>
     </div>
