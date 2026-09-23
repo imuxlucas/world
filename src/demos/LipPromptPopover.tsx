@@ -52,13 +52,15 @@ function SlotPopover({ input, icon }: { input: HTMLInputElement; icon: string })
         onInteractOutside={() => { outsideInteraction.current = true; }}
         onCloseAutoFocus={event => { event.preventDefault(); if (!outsideInteraction.current && input.isConnected) input.focus(); }}>
         <div className="product-popover__editor">
-          <RxTextarea ref={textarea} variant="filled" className="product-popover__textarea"
-            aria-label={label} placeholder={input.placeholder} value={value}
-            data-focus-ring={focusRing ? 'true' : 'false'}
-            onFocus={() => setFocusRing(modality === 'keyboard')}
-            onPointerDown={() => setFocusRing(false)}
-            onBlur={() => setFocusRing(false)}
-            onChange={event => updateValue(event.target.value)} />
+          <div className="product-popover__text-viewport">
+            <RxTextarea ref={textarea} variant="filled" className="product-popover__textarea"
+              aria-label={label} placeholder={input.placeholder} value={value}
+              data-focus-ring={focusRing ? 'true' : 'false'}
+              onFocus={() => setFocusRing(modality === 'keyboard')}
+              onPointerDown={() => setFocusRing(false)}
+              onBlur={() => setFocusRing(false)}
+              onChange={event => updateValue(event.target.value)} />
+          </div>
           <div className="product-popover__footer">
             <button className="product-popover__previous" type="button" onClick={() => updateValue(previousProduct)}>
               上次使用：<span>{previousProduct}</span>
