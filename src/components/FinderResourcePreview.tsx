@@ -1,10 +1,10 @@
 import { publicUrl } from '../publicUrl';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
 import PreviewControls from './PreviewControls';
 import './finderResourcePreview.css';
 
-export type FinderResource = { id:number; label:string; file:string };
+export type FinderResource = { id:number; label:string; file:string; src?:string; poster?:string };
 const ROOT=publicUrl('/media/workflow-finder/resources/');
 
 function MarkdownPreview({src}:{src:string}) {
@@ -20,12 +20,13 @@ function VideoPreview({src,poster}:{src:string;poster?:string}) {
   const [duration,setDuration]=useState(0);
   const [time,setTime]=useState(0);
   const [failed,setFailed]=useState(false);
+  const [ratio,setRatio]=useState(16/9);
   const toggle=()=>{const player=video.current;if(!player)return;if(player.paused)void player.play().catch(()=>setPlaying(false));else player.pause();};
   const format=(seconds:number)=>`${Math.floor(seconds/60)}:${String(Math.floor(seconds%60)).padStart(2,'0')}`;
-  return <div className="finder-video" onKeyDown={event=>{if(event.code==='Space'&&!(event.target as HTMLElement).closest('button,input')){event.preventDefault();toggle();}}}>
+  return <div className="finder-video" style={{'--video-ratio':ratio} as CSSProperties} onKeyDown={event=>{if(event.code==='Space'&&!(event.target as HTMLElement).closest('button,input')){event.preventDefault();toggle();}}}>
     <video ref={video} src={src} poster={poster} autoPlay playsInline preload="metadata" disablePictureInPicture disableRemotePlayback
       onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)} onEnded={()=>setPlaying(false)} onTimeUpdate={event=>setTime(event.currentTarget.currentTime)}
-      onLoadedMetadata={event=>{const value=event.currentTarget.duration;setDuration(Number.isFinite(value)?value:0);}}
+      onLoadedMetadata={event=>{const player=event.currentTarget;setDuration(Number.isFinite(player.duration)?player.duration:0);if(player.videoWidth&&player.videoHeight)setRatio(player.videoWidth/player.videoHeight);}}
       onError={()=>setFailed(true)} onClick={toggle}/>
     {failed?<p className="finder-media-error">此视频暂时无法播放</p>:<div className="finder-video-controls">
       <button type="button" onClick={toggle} aria-label={playing?'暂停':'播放'}>{playing?<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>:<svg viewBox="0 0 24 24" fill="currentColor"><path d="m7 3 15 9-15 9z"/></svg>}</button>
@@ -39,7 +40,7 @@ function VideoPreview({src,poster}:{src:string;poster?:string}) {
 export default function FinderResourcePreview({files,index,onIndexChange,onClose}:{files:FinderResource[];index:number;onIndexChange:(index:number)=>void;onClose:()=>void}) {
   const dialog=useRef<HTMLDialogElement>(null);
   const item=files[index];
-  const src=ROOT+item.file;
+  const src=item.src??ROOT+item.file;
   const extension=item.file.split('.').pop();
   useEffect(()=>{
     const previous=document.activeElement as HTMLElement|null;
@@ -57,7 +58,7 @@ export default function FinderResourcePreview({files,index,onIndexChange,onClose
     }}>
     <PreviewControls onClose={onClose} onPrevious={()=>onIndexChange(index-1)} onNext={()=>onIndexChange(index+1)} previousDisabled={index===0} nextDisabled={index===files.length-1}/>
     <div className="finder-preview-content" key={item.id}>
-      {extension==='mp4'?<VideoPreview src={src} poster={`${ROOT}${item.id===6?'wda-poster.png':'iconic-heart-poster.png'}`}/>:extension==='md'?<MarkdownPreview src={src}/>:extension==='pdf'?<div className="finder-pdf" tabIndex={0} role="document" aria-label={item.label}>{Array.from({length:8},(_,page)=><img key={page} width={1273} height={1800} src={`${ROOT}pdf-pages/page-${page+1}.png`} alt={`第 ${page+1} 页，共 8 页`} loading={page===0?'eager':'lazy'}/>)}</div>:<img className="finder-preview-image" src={src} alt={item.label}/>}
+      {extension==='mp4'?<VideoPreview src={src} poster={item.poster}/>:extension==='md'?<MarkdownPreview src={src}/>:extension==='pdf'?<div className="finder-pdf" tabIndex={0} role="document" aria-label={item.label}>{Array.from({length:8},(_,page)=><img key={page} width={1273} height={1800} src={`${ROOT}pdf-pages/page-${page+1}.png`} alt={`第 ${page+1} 页，共 8 页`} loading={page===0?'eager':'lazy'}/>)}</div>:<img className="finder-preview-image" src={src} alt={item.label}/>}
     </div>
   </dialog>,document.body);
 }

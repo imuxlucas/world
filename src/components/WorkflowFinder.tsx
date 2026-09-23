@@ -10,10 +10,10 @@ const FILES: FinderResource[] = [
   { id: 3, file: '3.png', label: 'WorkBuddy' },
   { id: 4, file: '4.jpg', label: 'Savage.jpg' },
   { id: 5, file: '5.jpg', label: 'WDA.jpg' },
-  { id: 6, file: '6.mp4', label: 'WDA.mp4' },
+  { id: 6, file: '6.mp4', label: 'WDA.mp4', src: ROOT+'6.mp4', poster: ROOT+'wda-poster.png' },
   { id: 7, file: '7.jpg', label: '7.jpg' },
   { id: 8, file: '8.jpg', label: '8.jpg' },
-  { id: 9, file: '9.mp4', label: '9.mp4' },
+  { id: 9, file: '9.mp4', label: '9.mp4', src: ROOT+'9.mp4', poster: ROOT+'iconic-heart-poster.png' },
 ];
 
 export default function WorkflowFinder({ thumbnail = false }: {thumbnail?:boolean}) {

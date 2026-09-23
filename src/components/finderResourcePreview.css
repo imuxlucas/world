@@ -4,11 +4,11 @@
 .finder-document pre { margin:0; padding:40px 48px; white-space:pre-wrap; overflow-wrap:anywhere; font:14px/1.8 'SFMono-Regular',Consolas,'PingFang SC',monospace; }
 .finder-pdf { width:min(100%,960px); height:100%; overflow:auto; border:0; background:transparent; padding:0 12px; outline-offset:3px; }
 .finder-pdf img { display:block; width:100%; height:auto; margin:0 auto 16px; background:#fff; }
-.finder-video { position:relative; width:100%; height:100%; min-width:0; min-height:0; display:grid; grid-template-rows:minmax(0,1fr) 56px; }
-.finder-video video { display:block; width:100%; height:100%; min-height:0; object-fit:contain; cursor:pointer; }
-.finder-video-controls { width:min(100%,760px); margin:auto; display:flex; align-items:center; gap:18px; height:56px; padding-inline:88px; box-sizing:border-box; }
-.finder-video-controls button { display:grid; place-items:center; width:36px; height:36px; padding:0; border:0; background:transparent; color:#929292; cursor:pointer; flex-shrink:0; }
+.finder-video { position:relative; width:min(100%,calc((100dvh - 64px) * var(--video-ratio,1.777778))); aspect-ratio:var(--video-ratio,1.777778); min-width:0; min-height:0; }
+.finder-video video { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:contain; cursor:pointer; }
+.finder-video-controls { position:absolute; z-index:1; bottom:16px; left:50%; transform:translateX(-50%); width:min(760px,calc(100% - 160px)); display:flex; align-items:center; gap:12px; height:48px; padding:6px 12px; box-sizing:border-box; border-radius:999px; background:#ffffffcc; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
+.finder-video-controls button { display:grid; place-items:center; width:36px; height:36px; padding:0; border:0; background:transparent; color:#555; cursor:pointer; flex-shrink:0; }
 .finder-video-controls button svg { width:17px; height:17px; }
-.finder-video-controls input { min-width:0; width:100%; margin:0; accent-color:#929292; cursor:pointer; }
+.finder-video-controls input { min-width:0; width:100%; margin:0; accent-color:#666; cursor:pointer; }
 .finder-media-error { position:absolute; top:50%; left:0; right:0; text-align:center; color:#777; }
 @media(max-width:600px) { .finder-document pre { padding:24px; font-size:12px; } }
