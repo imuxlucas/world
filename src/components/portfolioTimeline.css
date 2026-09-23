@@ -1,18 +1,20 @@
 .okr-case-stage:has(.portfolio-timeline) { min-height:210px; }
+.okr-case-stage[data-objective='o3']:has(.portfolio-timeline),
+.portfolio-timeline-thumbnail { background:#442321 url('/media/workflow-desktop/wallpaper-paper.png') center 48% / cover no-repeat; }
 .portfolio-timeline { position:relative; width:100%; height:100%; overflow:hidden; }
 .portfolio-timeline-viewport { position:absolute; left:0; right:0; bottom:80px; overflow:hidden; }
 .portfolio-timeline-track { display:flex; width:max-content; animation:portfolio-timeline-loop var(--cycle-duration) linear infinite; }
 .portfolio-timeline-group { display:flex; flex:none; gap:8px; padding-right:8px; }
 .portfolio-timeline-item { display:flex; flex:none; flex-direction:column; align-items:center; gap:8px; padding:0; margin:0; border:0; background:transparent; color:#999; font:inherit; cursor:pointer; }
 .portfolio-timeline-item img { display:block; width:100%; height:90px; object-fit:contain; border:0; }
-.portfolio-timeline-item span { font-size:12px; line-height:16px; font-weight:400; }
+.portfolio-timeline-item span { font-size:12px; line-height:16px; font-weight:400; color:#fff; text-shadow:0 1px 3px #0009; }
 .portfolio-timeline-item:focus-visible { outline:1px solid #888; outline-offset:-1px; }
 .portfolio-timeline-viewport:hover .portfolio-timeline-track,
 .portfolio-timeline-viewport:focus-within .portfolio-timeline-track,
 .portfolio-timeline.is-paused .portfolio-timeline-track { animation-play-state:paused; }
 /* Keep the original, keyboard-accessible group in view when tabbing. */
 .portfolio-timeline-viewport:has(.portfolio-timeline-item:focus-visible) .portfolio-timeline-track { animation:none; }
-.portfolio-timeline-thumbnail { position:relative; aspect-ratio:16/9; overflow:hidden; background:#fff; }
+.portfolio-timeline-thumbnail { position:relative; aspect-ratio:16/9; overflow:hidden; }
 .portfolio-timeline-thumbnail > div { position:absolute; bottom:18%; left:0; display:flex; gap:2px; }
 .portfolio-timeline-thumbnail img { display:block; height:16px; width:auto; object-fit:contain; }
 @keyframes portfolio-timeline-loop { to { transform:translateX(calc(-1 * var(--cycle-width))); } }
